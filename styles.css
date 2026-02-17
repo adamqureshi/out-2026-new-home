@@ -228,6 +228,9 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
   font-size: 14px;
 }
 
+/* Utility */
+.span-2{ grid-column: 1 / -1; }
+
 /* Hero */
 .hero{
   min-height: calc(100vh - 56px);
@@ -237,7 +240,7 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
   background:
     radial-gradient(1200px 700px at 20% -20%, rgba(0,0,0,.06), transparent 60%),
     radial-gradient(900px 600px at 120% 10%, rgba(0,0,0,.05), transparent 50%),
-    #fff;
+    #f6f7f8;
   border-bottom: 1px solid var(--border);
   position: relative;
 }
@@ -420,7 +423,7 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
   bottom: 0;
   padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   background: rgba(255,255,255,.92);
   backdrop-filter: blur(10px);

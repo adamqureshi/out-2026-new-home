@@ -41,6 +41,7 @@
   const yoyoInput = qs('#yoyoInput');
 
   const LINKS = {
+    shop: 'https://onlyusedtesla.com/used-tesla-for-sale',
     advertise: 'https://onlyusedtesla.com/sell-my-tesla',
     cash: 'https://onlyusedtesla.com/cash-offer',
     outcheck: 'https://adamqureshi.com/out-check-landing/',
@@ -72,6 +73,12 @@
       return;
     }
 
+    if (t.includes('shop') || t.includes('browse') || t.includes('buy')) {
+      appendMsg('Let’s shop Tesla‑only listings.', 'bot');
+      appendMsg(`<a class="link" href="${LINKS.shop}" target="_blank" rel="noopener">Open listings</a>`, 'bot');
+      return;
+    }
+
     if (t.includes('out') || t.includes('report') || t.includes('check')) {
       appendMsg('OUT‑CHECK is made for private sales: connect → generate → share.', 'bot');
       appendMsg(`<a class="link" href="${LINKS.outcheck}" target="_blank" rel="noopener">Buy OUT‑CHECK</a>`, 'bot');
@@ -84,7 +91,7 @@
       return;
     }
 
-    appendMsg('Got it. Quick options: “Advertise”, “Cash offer”, or “OUT‑CHECK”.', 'bot');
+    appendMsg('Got it. Quick options: “Shop”, “Advertise”, “Cash offer”, or “OUT‑CHECK”.', 'bot');
   };
 
   if (yoyoBtn) yoyoBtn.addEventListener('click', () => setYoYoOpen(true));
@@ -100,6 +107,13 @@
         appendMsg('Open the “Advertise my Tesla” flow.', 'user');
         window.open(LINKS.advertise, '_blank', 'noopener,noreferrer');
         botReply('advertise');
+        return;
+      }
+
+      if (action === 'shop') {
+        appendMsg('Open “Shop used Teslas”.', 'user');
+        window.open(LINKS.shop, '_blank', 'noopener,noreferrer');
+        botReply('shop');
         return;
       }
 
