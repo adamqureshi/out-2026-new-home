@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Log in — Only Used Tesla</title>
+  <meta name="description" content="Passwordless login for Only Used Tesla — use email magic link or social login." />
+  <meta name="theme-color" content="#111111" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar" role="banner">
+    <a class="brand" href="index.html" aria-label="Back to home">
+      <span class="brand-mark">←</span>
+      <span class="brand-text">Back</span>
+    </a>
+
+    <div class="topbar-spacer"></div>
+  </header>
+
+  <main class="page auth">
+    <section class="section auth-hero" aria-label="Login">
+      <div class="card">
+        <h1 class="auth-title">Log in (no passwords)</h1>
+        <p class="muted">
+          We keep this dumb simple: use email (magic link) or a social login.
+          You should never have to think “what’s my password?” again.
+        </p>
+
+        <div class="auth-block">
+          <h2 class="h2-tight">Continue with email</h2>
+
+          <form class="auth-form" id="emailForm">
+            <label class="label" for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+
+            <button class="btn primary full" type="submit">Email me a magic link</button>
+            <p class="fineprint">
+              (Demo UI — you’ll wire this up to your auth provider later.)
+            </p>
+          </form>
+
+          <div class="auth-toast" id="emailToast" role="status" aria-live="polite" hidden>
+            Sent. Check your email for a sign‑in link.
+          </div>
+        </div>
+
+        <div class="divider"><span>or</span></div>
+
+        <div class="auth-block">
+          <h2 class="h2-tight">Continue with social</h2>
+          <div class="social-grid">
+            <button class="btn secondary full" type="button" data-social="google">Continue with Google</button>
+            <button class="btn secondary full" type="button" data-social="apple">Continue with Apple</button>
+          </div>
+          <p class="fineprint">
+            Social buttons are placeholders until you connect OAuth.
+          </p>
+        </div>
+
+        <details class="details">
+          <summary>Phone login (optional)</summary>
+          <p class="muted">
+            Phone OTP is great for conversion, but SMS verification can add per‑verification costs.
+            Start with email magic links + Google/Apple, then add phone when it’s worth it.
+          </p>
+        </details>
+
+        <div class="auth-bottom">
+          <a class="link" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

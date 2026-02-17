@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Only Used Tesla — Advertise your Tesla • Get an OUT‑CHECK report</title>
+  <meta name="description" content="Advertise your Tesla to Tesla-only shoppers, request a cash offer, or generate an OUT‑CHECK report you can share with buyers." />
+  <meta name="theme-color" content="#111111" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Top bar -->
+  <header class="topbar" role="banner">
+    <a class="brand" href="index.html" aria-label="Only Used Tesla home">
+      <span class="brand-mark">OUT</span>
+      <span class="brand-text">Only Used Tesla</span>
+    </a>
+
+    <button class="icon-button" id="menuBtn" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+
+  <!-- Slide-over menu (hamburger placeholder) -->
+  <nav class="menu" id="menu" aria-hidden="true">
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+    <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="menu-header">
+        <div class="menu-title">Menu</div>
+        <button class="icon-button" id="closeMenu" aria-label="Close menu">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+
+      <ul class="menu-links">
+        <li><a href="#advertise" class="menu-link">Advertise your Tesla</a></li>
+        <li><a href="#outcheck" class="menu-link">OUT‑CHECK report</a></li>
+        <li><a href="login.html" class="menu-link">Log in</a></li>
+        <li><a href="#footer" class="menu-link">Contact</a></li>
+      </ul>
+
+      <div class="menu-fineprint">
+        Simple, mobile-first navigation for now. Replace this menu later with your full site nav.
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <!-- Hero (full-height on mobile) -->
+    <section class="hero" aria-label="Intro">
+      <div class="hero-inner">
+        <h1>Sell your Tesla with less back‑and‑forth.</h1>
+        <p class="lead">
+          Only Used Tesla is a Tesla‑only marketplace. Right now, we keep it simple:
+          <strong>advertise your Tesla</strong> (and optionally request a cash offer), or buy an
+          <strong>OUT‑CHECK</strong> report you can share in one clean link.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#advertise">Advertise my Tesla</a>
+          <a class="btn ghost" href="#outcheck">Get OUT‑CHECK</a>
+        </div>
+
+        <div class="trust-row" aria-label="Highlights">
+          <div class="chip">Mobile‑first</div>
+          <div class="chip">High‑contrast</div>
+          <div class="chip">No password sharing</div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint" aria-hidden="true">Scroll</div>
+    </section>
+
+    <!-- Offer 1 -->
+    <section id="advertise" class="section" aria-label="Advertise your Tesla">
+      <div class="card">
+        <div class="card-top">
+          <h2>Advertise your Tesla</h2>
+          <p class="muted">
+            Put your Tesla in front of Tesla‑only shoppers. Clean listing, fast contact, no noise.
+          </p>
+        </div>
+
+        <ul class="bullets">
+          <li>Built for sellers: photos, highlights, and a simple “contact seller” flow.</li>
+          <li>Built for mobile: big tap targets, quick scanning.</li>
+          <li>Want speed? You can also request a cash offer.</li>
+        </ul>
+
+        <div class="card-actions">
+          <a class="btn primary" href="https://onlyusedtesla.com/sell-my-tesla">Start my ad</a>
+          <a class="btn secondary" href="https://onlyusedtesla.com/cash-offer">Get a cash offer</a>
+        </div>
+
+        <p class="fineprint">
+          Tip: If you’re redesigning routes later, just update the two links above.
+        </p>
+      </div>
+    </section>
+
+    <!-- Offer 2 -->
+    <section id="outcheck" class="section" aria-label="OUT-CHECK report">
+      <div class="card">
+        <div class="card-top">
+          <h2>Buy an OUT‑CHECK report</h2>
+          <p class="muted">
+            A simple report generated from your Tesla’s data that you can share with buyers —
+            without sharing your Tesla password.
+          </p>
+        </div>
+
+        <div class="feature-grid" role="list" aria-label="OUT-CHECK features">
+          <div class="feature" role="listitem">
+            <h3>Battery snapshot</h3>
+            <p>Answer “how’s the battery?” quickly.</p>
+          </div>
+
+          <div class="feature" role="listitem">
+            <h3>Vehicle basics</h3>
+            <p>Key identifiers and details buyers expect.</p>
+          </div>
+
+          <div class="feature" role="listitem">
+            <h3>Options & configuration</h3>
+            <p>A clear view of what the car actually has.</p>
+          </div>
+
+          <div class="feature" role="listitem">
+            <h3>Software & system info</h3>
+            <p>Small details that build trust and reduce messages.</p>
+          </div>
+
+          <div class="feature" role="listitem">
+            <h3>Warranty snapshot</h3>
+            <p>Warranty-related information where available.</p>
+          </div>
+
+          <div class="feature" role="listitem">
+            <h3>Timestamped share link</h3>
+            <p>One link to share — no repeating yourself.</p>
+          </div>
+        </div>
+
+        <div class="mini-note" aria-label="OUT-CHECK trust notes">
+          <span class="chip">Read‑only connection</span>
+          <span class="chip">Revoke anytime</span>
+          <span class="chip">Shareable link</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn primary" href="https://adamqureshi.com/out-check-landing/" target="_blank" rel="noopener">Buy OUT‑CHECK</a>
+          <a class="btn secondary" href="https://adamqureshi.com/OUT-report/" target="_blank" rel="noopener">View sample report</a>
+        </div>
+
+        <p class="fineprint">
+          OUT‑CHECK is designed for private sales: connect, generate, share, done.
+        </p>
+      </div>
+    </section>
+
+    <!-- Simple “do I need an account?” section -->
+    <section class="section" aria-label="Account">
+      <div class="card subtle">
+        <h2 class="h2-tight">Do I need an account?</h2>
+
+        <div class="qa-grid">
+          <div class="qa">
+            <h3>Browsing</h3>
+            <p>Nope. Just tap what you need.</p>
+          </div>
+
+          <div class="qa">
+            <h3>Buying later</h3>
+            <p>
+              If you ever need to “log in,” we’ll keep it passwordless (email magic link / social login).
+              No one should be hunting for a password in 2026.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn ghost" href="login.html">See the simple login page</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA bar (mobile) -->
+    <div class="bottom-cta" role="region" aria-label="Quick actions">
+      <a class="btn small primary" href="#advertise">Advertise</a>
+      <a class="btn small secondary" href="#outcheck">OUT‑CHECK</a>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-title">Only Used Tesla</div>
+          <p class="footer-text">
+            Placeholders for now — add links, address, social, and policies when you’re ready.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-title">Links</div>
+          <ul class="footer-links">
+            <li><a href="#advertise">Advertise your Tesla</a></li>
+            <li><a href="#outcheck">OUT‑CHECK</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-title">Contact</div>
+          <p class="footer-text">
+            Email: <a href="mailto:hello@onlyusedtesla.com">hello@onlyusedtesla.com</a><br />
+            (Placeholder — update to your preferred inbox.)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Only Used Tesla</span>
+        <span class="dot">•</span>
+        <span>Not affiliated with Tesla, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Yo‑Yo (AI agent bubble — placeholder UI) -->
+  <button class="yoyo-fab" id="yoyoBtn" aria-label="Open Yo‑Yo chat" aria-controls="yoyoPanel" aria-expanded="false">
+    <span class="yoyo-fab-top">Yo‑Yo</span>
+    <span class="yoyo-fab-sub">Ask me</span>
+  </button>
+
+  <section class="yoyo" id="yoyoPanel" aria-hidden="true" aria-label="Yo-Yo chat">
+    <div class="yoyo-header">
+      <div class="yoyo-title">
+        <div class="yoyo-badge">Yo‑Yo</div>
+        <div>
+          <div class="yoyo-name">Yo‑Yo</div>
+          <div class="yoyo-status">Online (demo)</div>
+        </div>
+      </div>
+      <button class="icon-button" id="yoyoClose" aria-label="Close chat">
+        <span aria-hidden="true">✕</span>
+      </button>
+    </div>
+
+    <div class="yoyo-body" id="yoyoBody" aria-live="polite">
+      <div class="msg bot">Hi — I’m Yo‑Yo 👋</div>
+      <div class="msg bot">What are you trying to do today?</div>
+      <div class="quick" role="group" aria-label="Quick actions">
+        <button class="quick-btn" data-action="advertise">Advertise my Tesla</button>
+        <button class="quick-btn" data-action="cash">Get a cash offer</button>
+        <button class="quick-btn" data-action="outcheck">Buy OUT‑CHECK</button>
+      </div>
+    </div>
+
+    <form class="yoyo-input" id="yoyoForm">
+      <label class="sr-only" for="yoyoInput">Message</label>
+      <input id="yoyoInput" type="text" placeholder="Ask Yo‑Yo…" autocomplete="off" />
+      <button type="submit" class="send-btn">Send</button>
+    </form>
+
+    <div class="yoyo-disclaimer">
+      Placeholder UI only — plug this into your real AI agent later.
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
