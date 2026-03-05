@@ -1,6 +1,6 @@
 # OUT-2026-home
 
-A **super simple, mobile-first, grayscale** landing page for OnlyUsedTesla.com.
+A **super simple, mobile-first, grayscale with a light blue fade** landing page for OnlyUsedTesla.com.
 
 ## What’s on the homepage
 
@@ -19,7 +19,7 @@ Also includes:
 
 - `index.html` — homepage
 - `login.html` — dumb-simple passwordless login page (UI only)
-- `styles.css` — grayscale styling
+- `styles.css` — grayscale styling + light blue fade background
 - `script.js` — minimal interactivity
 - `assets/` — brand icon/logo (used for header + favicon)
 
