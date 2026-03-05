@@ -7,12 +7,13 @@
   --surface: #ffffff;
   --surface-2: #f6f7f8;
   --text: #111111;
-  --muted: #4b5563;
-  --border: #e5e7eb;
+  --muted: #374151;
+  --border: #d1d5db;
   --shadow: 0 10px 30px rgba(0,0,0,.08);
   --radius: 16px;
   --radius-sm: 12px;
-  --tap: 48px;
+  /* 48px is OK; 52px feels even better for thumbs */
+  --tap: 52px;
   --max: 1040px;
 }
 
@@ -22,7 +23,10 @@ body{
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
-  background: var(--bg);
+  /* Subtle “fade” background (Apple-like, but grayscale) */
+  background:
+    radial-gradient(1100px 680px at 50% -260px, rgba(0,0,0,.10), transparent 72%),
+    linear-gradient(180deg, #f3f4f6 0%, #ffffff 44%, #f3f4f6 100%);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -53,12 +57,12 @@ a:hover{ text-decoration: underline; }
   top: 0;
   left: 0;
   right: 0;
-  height: 56px;
+  height: 60px;
   padding: 0 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,255,255,.92);
+  background: rgba(255,255,255,.86);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   z-index: 50;
@@ -69,6 +73,16 @@ a:hover{ text-decoration: underline; }
   align-items: center;
   gap: 10px;
   min-height: var(--tap);
+}
+
+.brand-icon{
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: block;
+  background: #fff;
+  border: 1px solid var(--border);
+  object-fit: cover;
 }
 
 .brand-mark{
@@ -96,7 +110,7 @@ a:hover{ text-decoration: underline; }
   place-items: center;
   border: 1px solid var(--border);
   background: #fff;
-  border-radius: 14px;
+  border-radius: 999px;
   cursor: pointer;
   box-shadow: 0 1px 0 rgba(0,0,0,.02);
 }
@@ -111,7 +125,7 @@ a:hover{ text-decoration: underline; }
 
 /* Page layout */
 .page{
-  padding-top: 56px;
+  padding-top: 60px;
   min-height: 100%;
 }
 
@@ -186,14 +200,15 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
   align-items: center;
   justify-content: center;
   min-height: var(--tap);
-  padding: 12px 16px;
-  border-radius: 14px;
+  padding: 14px 18px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   font-weight: 800;
   letter-spacing: .01em;
   cursor: pointer;
   text-decoration: none;
   user-select: none;
+  touch-action: manipulation;
   transition: transform .03s ease, background .15s ease;
 }
 
@@ -211,7 +226,7 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
   background: #fff;
   color: #111;
 }
-.btn.secondary:hover{ background: var(--surface-2); }
+.btn.secondary:hover{ background: rgba(255,255,255,.95); }
 
 .btn.ghost{
   background: transparent;
@@ -222,9 +237,9 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
 .btn.full{ width: 100%; }
 
 .btn.small{
-  min-height: 44px;
+  min-height: 46px;
   padding: 10px 14px;
-  border-radius: 12px;
+  border-radius: 999px;
   font-size: 14px;
 }
 
@@ -233,14 +248,13 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
 
 /* Hero */
 .hero{
-  min-height: calc(100vh - 56px);
-  padding: 22px 14px 92px;
+  min-height: calc(100vh - 60px);
+  padding: 34px 14px 110px;
   display: grid;
-  align-items: center;
+  align-items: start;
   background:
-    radial-gradient(1200px 700px at 20% -20%, rgba(0,0,0,.06), transparent 60%),
-    radial-gradient(900px 600px at 120% 10%, rgba(0,0,0,.05), transparent 50%),
-    #f6f7f8;
+    radial-gradient(1200px 700px at 25% -25%, rgba(0,0,0,.08), transparent 62%),
+    radial-gradient(900px 600px at 120% 10%, rgba(0,0,0,.06), transparent 55%);
   border-bottom: 1px solid var(--border);
   position: relative;
 }
@@ -253,10 +267,12 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
 
 .hero-actions{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
   margin: 16px 0 14px;
 }
+
+.hero-actions .btn{ width: 100%; }
 
 @media (min-width: 720px){
   .hero-actions{
@@ -264,6 +280,8 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
     grid-template-columns: auto auto;
     justify-content: start;
   }
+
+  .hero-actions .btn{ width: auto; }
 }
 
 .trust-row{
@@ -276,10 +294,10 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 10px;
+  padding: 9px 12px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.86);
   color: #111;
   font-weight: 700;
   font-size: 13px;
@@ -295,7 +313,7 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 6px 10px;
-  background: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.86);
 }
 
 /* Bullets */
@@ -312,7 +330,7 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
 .card-actions{
   margin-top: 16px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 

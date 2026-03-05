@@ -21,6 +21,7 @@ Also includes:
 - `login.html` — dumb-simple passwordless login page (UI only)
 - `styles.css` — grayscale styling
 - `script.js` — minimal interactivity
+- `assets/` — brand icon/logo (used for header + favicon)
 
 ## Quick start
 
