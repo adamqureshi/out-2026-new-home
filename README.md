@@ -1,43 +1,28 @@
 # OUT-2026-home
 
-A **super simple, mobile-first, grayscale with a light blue fade** landing page for OnlyUsedTesla.com.
+A super simple, mobile-first, grayscale landing page for Only Used Tesla with a new dealer sign-up page added.
 
-## What’s on the homepage
-
-Three clear paths (what your users do right now):
-
-1) **Shop used Teslas** (external link)
-2) **Advertise your Tesla** (plus optional **Cash Offer**)
-3) **Buy an OUT‑CHECK report** (external link to your current landing)
-
-Also includes:
-- Hamburger menu placeholder (slide-over)
-- Footer placeholder
-- **Yo‑Yo** AI agent bubble (UI placeholder)
-
-## Files
+## Included pages
 
 - `index.html` — homepage
-- `login.html` — dumb-simple passwordless login page (UI only)
-- `styles.css` — grayscale styling + light blue fade background
-- `script.js` — minimal interactivity
-- `assets/` — brand icon/logo (used for header + favicon)
+- `dealer.html` — dealer sign-up page
+- `login.html` — passwordless login UI (placeholder)
+- `styles.css` — shared styles
+- `script.js` — menu, Yo-Yo UI, and basic demo interactions
+- `assets/` — icon and logo
 
-## Quick start
+## What changed
 
-Open `index.html` in a browser.
+- Added `dealer.html` using the existing design pattern and the current CSS
+- Added **Dealer sign up** to the homepage navigation and footer
+- Added a dealer teaser section to the homepage
+- Kept styling intact and reused the same component classes
+- Added basic dealer intent handling in `script.js`
 
-## Update the main links
+## Main dealer CTA
 
-In `index.html` and `script.js`, update:
+The dealer sign-up page currently uses:
 
-- Shop: `https://onlyusedtesla.com/used-tesla-for-sale`
-- Advertise flow: `https://onlyusedtesla.com/sell-my-tesla`
-- Cash offer: `https://onlyusedtesla.com/cash-offer`
-- OUT‑CHECK landing: `https://adamqureshi.com/out-check-landing/`
+- `mailto:hello@onlyusedtesla.com?subject=Dealer%20Sign%20Up%20-%20Only%20Used%20Tesla`
 
-## Next steps (when you’re ready)
-
-- Wire the login UI to a passwordless provider (Supabase / Clerk / Firebase / Auth0, etc.)
-- Replace Yo‑Yo placeholder with your real agent widget / API
-- Add additional pages and turn the hamburger into real navigation
+Update that email address if you want the CTA to go somewhere else.

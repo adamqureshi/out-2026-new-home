@@ -1,0 +1,10 @@
+Files added/updated in this package:
+
+- index.html
+- dealer.html
+- script.js
+- README.md
+- styles.css (unchanged, included for complete upload)
+- login.html (unchanged, included for complete upload)
+- assets/icon.png
+- assets/logo.png

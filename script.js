@@ -45,6 +45,7 @@
     advertise: 'https://onlyusedtesla.com/sell-my-tesla',
     cash: 'https://onlyusedtesla.com/cash-offer',
     outcheck: 'https://adamqureshi.com/out-check-landing/',
+    dealer: 'dealer.html',
   };
 
   const setYoYoOpen = (open) => {
@@ -70,6 +71,12 @@
     if (t.includes('cash') || t.includes('offer')) {
       appendMsg('Want a quick cash offer? Tap the button below, or I can open it for you.', 'bot');
       appendMsg(`<a class="link" href="${LINKS.cash}" target="_blank" rel="noopener">Open cash offer</a>`, 'bot');
+      return;
+    }
+
+    if (t.includes('dealer') || t.includes('inventory') || t.includes('dealership')) {
+      appendMsg('Looking to advertise dealer inventory? Start on the dealer sign-up page.', 'bot');
+      appendMsg(`<a class="link" href="${LINKS.dealer}">Open dealer sign-up</a>`, 'bot');
       return;
     }
 
