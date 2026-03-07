@@ -15,6 +15,10 @@
   /* 48px is OK; 52px feels even better for thumbs */
   --tap: 52px;
   --max: 1040px;
+  --topbar-h: clamp(64px, 7vw, 78px);
+  --brand-icon-size: clamp(34px, 3.8vw, 46px);
+  --brand-wordmark-size: clamp(200px, 28vw, 360px);
+  --brand-gap: clamp(8px, 1.2vw, 12px);
 }
 
 *{ box-sizing: border-box; }
@@ -58,12 +62,12 @@ a:hover{ text-decoration: underline; }
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
-  padding: 0 14px;
+  height: var(--topbar-h);
+  padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   z-index: 50;
@@ -72,18 +76,35 @@ a:hover{ text-decoration: underline; }
 .brand{
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--brand-gap);
   min-height: var(--tap);
+  min-width: 0;
+  max-width: calc(100vw - 84px);
+  flex: 0 1 auto;
+}
+
+.brand:hover{
+  text-decoration: none;
 }
 
 .brand-icon{
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
+  width: var(--brand-icon-size);
+  height: var(--brand-icon-size);
   display: block;
-  background: #fff;
-  border: 1px solid var(--border);
-  object-fit: cover;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.brand-wordmark{
+  width: var(--brand-wordmark-size);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  flex: 0 1 auto;
 }
 
 .brand-mark{
@@ -102,6 +123,7 @@ a:hover{ text-decoration: underline; }
 .brand-text{
   font-weight: 800;
   letter-spacing: .01em;
+  font-size: 15px;
 }
 
 .icon-button{
@@ -126,7 +148,7 @@ a:hover{ text-decoration: underline; }
 
 /* Page layout */
 .page{
-  padding-top: 60px;
+  padding-top: var(--topbar-h);
   min-height: 100%;
 }
 
@@ -249,7 +271,7 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
 
 /* Hero */
 .hero{
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - var(--topbar-h));
   padding: 34px 14px 110px;
   display: grid;
   align-items: start;
