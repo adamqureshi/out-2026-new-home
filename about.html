@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Log in — Only Used Tesla</title>
-  <meta name="description" content="Passwordless login for Only Used Tesla — use email magic link or social login." />
+  <title>About Us — Only Used Tesla</title>
+  <meta name="description" content="Learn about Only Used Tesla, the independent Tesla-only marketplace and software project built by Adam Qureshi in NYC." />
   <meta name="theme-color" content="#111111" />
   <link rel="icon" type="image/png" href="assets/icon.png" />
   <link rel="apple-touch-icon" href="assets/icon.png" />
@@ -52,57 +52,94 @@
   </nav>
 
   <main class="page">
-        <section class="section auth-hero" aria-label="Login">
+        <section class="section page-intro" aria-label="About Only Used Tesla">
           <div class="card">
-            <div class="eyebrow">Account</div>
-            <h1 class="auth-title">Log in (no passwords)</h1>
-            <p class="muted">
-              We keep this dumb simple: use email (magic link) or a social login.
-              You should never have to think “what’s my password?” again.
+            <div class="eyebrow">About Us</div>
+            <h1>Built for used Tesla buyers, sellers, and dealers who want less noise.</h1>
+            <p class="lead">
+              Only Used Tesla is an independent Tesla-only marketplace and software project built by Adam Qureshi in New York City.
+              Since 2017, the goal has been simple: make used Tesla shopping, selling, and dealer marketing more focused,
+              more mobile-friendly, and easier to trust.
             </p>
 
-            <div class="auth-block">
-              <h2 class="h2-tight">Continue with email</h2>
+            <div class="meta-row" aria-label="About highlights">
+              <span class="chip">Made in NYC</span>
+              <span class="chip">Since 2017</span>
+              <span class="chip">Independent</span>
+              <span class="chip">Small software shop</span>
+            </div>
+          </div>
+        </section>
 
-              <form class="auth-form" id="emailForm">
-                <label class="label" for="email">Email</label>
-                <input class="input" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
-
-                <button class="btn primary full" type="submit">Email me a magic link</button>
-                <p class="fineprint">
-                  Demo UI for now — connect your auth provider later.
-                </p>
-              </form>
-
-              <div class="auth-toast" id="emailToast" role="status" aria-live="polite" hidden>
-                Sent. Check your email for a sign‑in link.
+        <section class="section section-tight" aria-label="Quick facts">
+          <div class="card">
+            <div class="stat-grid">
+              <div class="stat">
+                <strong>Founded</strong>
+                <span>2017</span>
+              </div>
+              <div class="stat">
+                <strong>Based in</strong>
+                <span>New York City</span>
+              </div>
+              <div class="stat">
+                <strong>Built for</strong>
+                <span>Buyers, sellers, and dealers</span>
+              </div>
+              <div class="stat">
+                <strong>Approach</strong>
+                <span>Simple, focused, mobile-first</span>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div class="divider"><span>or</span></div>
-
-            <div class="auth-block">
-              <h2 class="h2-tight">Continue with social</h2>
-              <div class="social-grid">
-                <button class="btn secondary full" type="button" data-social="google">Continue with Google</button>
-                <button class="btn secondary full" type="button" data-social="apple">Continue with Apple</button>
-              </div>
-              <p class="fineprint">
-                Social buttons are placeholders until you connect OAuth.
-              </p>
-            </div>
-
-            <details class="details">
-              <summary>Phone login (optional)</summary>
+        <section class="section" aria-label="What Only Used Tesla is building">
+          <div class="card">
+            <div class="card-top">
+              <h2>What Only Used Tesla is building</h2>
               <p class="muted">
-                Phone OTP is great for conversion, but SMS verification can add per‑verification costs.
-                Start with email magic links + Google/Apple, then add phone when it’s worth it.
+                Only Used Tesla is part marketplace, part software shop, and part performance marketing system for the used Tesla market.
               </p>
-            </details>
-
-            <div class="auth-bottom">
-              <a class="link" href="index.html">Back to home</a>
             </div>
+
+            <div class="feature-grid" role="list" aria-label="About features">
+              <div class="feature" role="listitem">
+                <h3>Tesla-only focus</h3>
+                <p>A dedicated experience for used Tesla inventory instead of a generic marketplace full of unrelated vehicles.</p>
+              </div>
+              <div class="feature" role="listitem">
+                <h3>Mobile-first by default</h3>
+                <p>Most users are on phones, so the experience is designed around scanning, tapping, and getting to the point quickly.</p>
+              </div>
+              <div class="feature" role="listitem">
+                <h3>Built for dealers and private sellers</h3>
+                <p>The platform supports both consumer listings and dealership inventory with clearer Tesla-specific positioning.</p>
+              </div>
+              <div class="feature" role="listitem">
+                <h3>Independent software shop</h3>
+                <p>This project is intentionally lean. Small teams can still build useful software, fast pages, and focused products.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" aria-label="Founder">
+          <div class="card subtle">
+            <h2 class="h2-tight">Adam Qureshi</h2>
+            <p class="muted">
+              Only Used Tesla is built by Adam Qureshi. This project reflects ongoing work in marketplace software,
+              landing pages, and focused automotive lead generation. Built in NYC. In business since 2017 and still going.
+            </p>
+
+            <div class="card-actions">
+              <a class="btn primary" href="https://www.linkedin.com/in/adamqureshi/" target="_blank" rel="noopener">View LinkedIn</a>
+              <a class="btn secondary" href="mailto:hello@onlyusedtesla.com">Email Only Used Tesla</a>
+            </div>
+
+            <p class="fineprint">
+              Only Used Tesla is an independent business and is not affiliated with Tesla, Inc.
+            </p>
           </div>
         </section>
   </main>

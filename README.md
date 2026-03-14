@@ -1,28 +1,29 @@
 # OUT-2026-home
 
-A super simple, mobile-first, grayscale landing page for Only Used Tesla with a new dealer sign-up page added.
+Mobile-first Only Used Tesla landing site with a shared footer and new company/legal pages.
 
 ## Included pages
 
 - `index.html` — homepage
 - `dealer.html` — dealer sign-up page
 - `login.html` — passwordless login UI (placeholder)
+- `about.html` — About Us
+- `visitor-agreement.html` — Visitor Agreement
+- `terms-of-service.html` — Terms of Service
+- `privacy-policy.html` — Privacy Policy
 - `styles.css` — shared styles
 - `script.js` — menu, Yo-Yo UI, and basic demo interactions
-- `assets/` — icon and logo
+- `assets/` — icon, logo, and wordmark
 
 ## What changed
 
-- Added `dealer.html` using the existing design pattern and the current CSS
-- Added **Dealer sign up** to the homepage navigation and footer
-- Added a dealer teaser section to the homepage
-- Kept styling intact and reused the same component classes
-- Added basic dealer intent handling in `script.js`
+- Replaced the placeholder footer with a darker mobile-first footer inspired by the older site
+- Added About Us, Visitor Agreement, Terms of Service, and Privacy Policy pages
+- Added Adam Qureshi / NYC / since 2017 brand copy in the footer and About page
+- Updated the login page to use the same shared navigation/footer pattern
+- Kept the build static and lightweight for simple GitHub Pages upload
 
-## Main dealer CTA
+## Legal copy note
 
-The dealer sign-up page currently uses:
-
-- `mailto:hello@onlyusedtesla.com?subject=Dealer%20Sign%20Up%20-%20Only%20Used%20Tesla`
-
-Update that email address if you want the CTA to go somewhere else.
+The legal pages are strong starter drafts with an effective date of **March 14, 2026**.
+They are ready to publish now and can be refined later.
