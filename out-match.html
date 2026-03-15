@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>OUT‑MATCH — Tesla buyer concierge beta | Only Used Tesla</title>
+  <meta name="description" content="OUT‑MATCH is the Tesla-only buyer concierge beta from Only Used Tesla. Get help sourcing the right Tesla or pressure-testing a Tesla you already found for a $499 flat beta fee." />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <a class="brand" href="index.html" aria-label="Only Used Tesla home">
+      <img class="brand-icon" src="assets/icon.png" alt="" width="512" height="512" aria-hidden="true" />
+      <img class="brand-wordmark" src="assets/wordmark.png" alt="" width="1024" height="74" aria-hidden="true" />
+      <span class="sr-only">Only Used Tesla</span>
+    </a>
+
+    <button class="icon-button" id="menuBtn" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+
+  <nav class="menu" id="menu" aria-hidden="true">
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+    <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="menu-header">
+        <div class="menu-title">Menu</div>
+        <button class="icon-button" id="closeMenu" aria-label="Close menu">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+
+      <ul class="menu-links">
+        <li><a href="index.html" class="menu-link">Home</a></li>
+        <li><a href="index.html#shop" class="menu-link">Shop</a></li>
+        <li><a href="index.html#advertise" class="menu-link">Advertise your Tesla</a></li>
+        <li><a href="dealer.html" class="menu-link">Dealer sign up</a></li>
+        <li><a href="index.html#outcheck" class="menu-link">OUT‑CHECK</a></li>
+        <li><a href="out-match.html" class="menu-link">OUT‑MATCH</a></li>
+        <li><a href="about.html" class="menu-link">About us</a></li>
+        <li><a href="#footer" class="menu-link">Contact</a></li>
+        <li><a href="login.html" class="menu-link">Log in</a></li>
+      </ul>
+      <div class="menu-fineprint">OUT‑MATCH is a Tesla-only buyer concierge beta: sourcing help, second-look review, seller outreach, and negotiation support in one pilot offer.</div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="outmatch-hero" aria-label="OUT-MATCH intro">
+      <div class="outmatch-shell">
+        <div class="outmatch-copy">
+          <div class="hero-eyebrow hero-eyebrow--dark"><span class="hero-dot" aria-hidden="true"></span>New offer test: concierge beta for used Tesla buyers</div>
+          <h1>Meet OUT‑MATCH.</h1>
+          <p class="lead outmatch-lead">
+            Tell us the Tesla you want. Or send the Tesla you already found. Your <strong>OUT Agent</strong>
+            helps source the right car, pressure-test the price, contact the seller when needed,
+            and guide the deal with AI-assisted research plus human judgment.
+          </p>
+
+          <div class="trust-row trust-row--dark" aria-label="OUT-MATCH highlights">
+            <div class="chip chip--dark">Tesla-only focus</div>
+            <div class="chip chip--dark">Negotiation support</div>
+            <div class="chip chip--dark">Full search or second look</div>
+            <div class="chip chip--dark">Dealer + private seller outreach</div>
+            <div class="chip chip--dark">Remote-friendly</div>
+          </div>
+
+          <div class="hero-actions hero-actions--outmatch">
+            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20beta%20fit%20call&amp;body=Name:%0D%0ALocation:%0D%0ABudget:%0D%0ATimeline:%0D%0AWhat%20Tesla%20are%20you%20looking%20for?%0D%0AHave%20you%20already%20found%20a%20car?%20Paste%20link:%0D%0A">Book free fit call</a>
+            <a class="btn dark-outline" href="#included">See what's included</a>
+          </div>
+
+          <p class="outmatch-small">
+            Built for buyers who want help choosing the right used Tesla without endless tabs,
+            pressure, or random dealer games.
+          </p>
+        </div>
+
+        <aside class="outmatch-panel" aria-label="OUT-MATCH beta pricing">
+          <div class="outmatch-offer-badge">Founding offer</div>
+          <div class="outmatch-panel-kicker">OUT‑MATCH Beta</div>
+
+          <div class="outmatch-price-row">
+            <div class="outmatch-price">$499</div>
+            <div class="outmatch-price-copy">flat fee for the pilot</div>
+          </div>
+
+          <ul class="outmatch-checklist">
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Free fit call before you pay</span></li>
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>1:1 used Tesla specialist</span></li>
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Shortlist, outreach, and negotiation help</span></li>
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Second-look review if you already found a car</span></li>
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Guidance through paperwork and delivery steps</span></li>
+          </ul>
+
+          <div class="card-actions outmatch-panel-actions">
+            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20beta%20fit%20call&amp;body=Name:%0D%0ALocation:%0D%0ABudget:%0D%0ATimeline:%0D%0AWhat%20Tesla%20are%20you%20looking%20for?%0D%0AHave%20you%20already%20found%20a%20car?%20Paste%20link:%0D%0A">Apply now</a>
+            <a class="btn secondary" href="#faq-lite">Read FAQ</a>
+          </div>
+
+          <p class="outmatch-note">
+            Pilot pricing is best for the first few buyer engagements while the process gets tighter,
+            the workflow gets faster, and early testimonials come in.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-label="What is OUT-MATCH">
+      <div class="card">
+        <div class="card-top">
+          <div class="eyebrow">What is OUT‑MATCH?</div>
+          <h2>Two ways to use it</h2>
+          <p class="muted">
+            OUT‑MATCH is a Tesla-only buyer support service. You can use it as a full concierge search,
+            or as a second-look service when you already found a Tesla and want a sharper opinion before you buy.
+          </p>
+        </div>
+
+        <div class="audience-grid">
+          <div class="feature">
+            <h3>I need help finding the right Tesla</h3>
+            <p>Tell us the trim, budget, location, timeline, and must-haves. Your OUT Agent helps search, shortlist, and compare real options.</p>
+          </div>
+          <div class="feature">
+            <h3>I already found a Tesla</h3>
+            <p>Send the listing. OUT‑MATCH can pressure-test the price, review the deal structure, and flag questions worth asking before you sign.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="How OUT-MATCH works">
+      <div class="card">
+        <div class="card-top">
+          <div class="eyebrow">How it works</div>
+          <h2>Simple, Tesla-focused, and human-led</h2>
+          <p class="muted">The beta is meant to feel lightweight for the buyer while still doing the real work behind the scenes.</p>
+        </div>
+
+        <div class="step-grid">
+          <div class="step">
+            <div class="step-num">Step 1</div>
+            <h3>Start with a fit call</h3>
+            <p>We define whether you need a full search, a second look, or help with one specific live deal.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">Step 2</div>
+            <h3>Your OUT Agent does the work</h3>
+            <p>We research listings, compare prices, review options and warranty context, and call the seller or dealer if needed.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">Step 3</div>
+            <h3>You decide with more confidence</h3>
+            <p>We help you negotiate, review paperwork for common issues, and move toward pickup or delivery with fewer surprises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="included" class="section" aria-label="What is included in OUT-MATCH">
+      <div class="card">
+        <div class="card-top">
+          <div class="eyebrow">What's included</div>
+          <h2>What a buyer gets for the beta fee</h2>
+          <p class="muted">Every engagement is different, but the core service is built around the jobs buyers actually need help with.</p>
+        </div>
+
+        <div class="feature-grid" role="list" aria-label="Included services">
+          <div class="feature" role="listitem">
+            <h3>Targeted Tesla search</h3>
+            <p>Search support based on trim, battery, budget, region, accident history, mileage, and feature priorities.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Second-look review</h3>
+            <p>A smarter pass on a Tesla you already found so you can spot weak pricing or missing details before you move.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Seller or dealer outreach</h3>
+            <p>Help contacting the seller to clarify condition, extras, charging setup, paperwork, timing, and flexibility on price.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Negotiation support</h3>
+            <p>Guidance on a realistic offer, talking points, and next-best options so you do not negotiate from a weak position.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>AI-assisted research workflow</h3>
+            <p>Use AI to summarize listings, compare deal structure, surface red flags, and speed up Tesla-specific research.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Paperwork guidance</h3>
+            <p>Common-sense review of purchase documents, fees, and deal terms to help you ask better questions before signing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Benefits for buyers and providers">
+      <div class="audience-grid audience-grid--cards">
+        <div class="card">
+          <div class="card-top">
+            <div class="eyebrow">For consumers</div>
+            <h2>Why buyers would use OUT‑MATCH</h2>
+          </div>
+          <ul class="stack-list">
+            <li>Save time by having a Tesla-only person do the filtering and first-pass research.</li>
+            <li>Get a second set of eyes before sending a deposit or traveling for the car.</li>
+            <li>Negotiate with stronger context on market pricing and listing quality.</li>
+            <li>Reduce the chance of missing small details that turn into expensive regrets later.</li>
+            <li>Have one place to ask questions while the deal is still moving quickly.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="eyebrow">For providers</div>
+            <h2>Why a Tesla expert would join</h2>
+          </div>
+          <ul class="stack-list">
+            <li>Get paid to turn Tesla knowledge into a buyer-support service instead of random free advice.</li>
+            <li>Work remotely and flexibly on deals that match your knowledge and availability.</li>
+            <li>Use AI tools to move faster on listing review, market checks, and paperwork summaries.</li>
+            <li>Focus on Tesla-only cases rather than generic car-buying chaos.</li>
+            <li>Help real people get into the right Tesla at a better number with less stress.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Who should apply as an expert">
+      <div class="card subtle">
+        <div class="card-top">
+          <div class="eyebrow">Expert side</div>
+          <h2>Who should sign up as an OUT‑MATCH expert?</h2>
+          <p class="muted">This is for people who really know Teslas and can communicate clearly with buyers, dealers, and private sellers.</p>
+        </div>
+
+        <div class="feature-grid" role="list" aria-label="Expert fit">
+          <div class="feature" role="listitem">
+            <h3>Former Tesla or Tesla-adjacent operators</h3>
+            <p>People who understand trims, software history, warranty context, options, and common ownership questions.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Owners and enthusiasts with real deal knowledge</h3>
+            <p>People who know what matters on used Teslas and can separate signal from noise in listings and seller claims.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Comfortable on calls and in the details</h3>
+            <p>You should be able to ask good questions, organize information, and keep buyers calm while a deal is moving.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Excited to help more people get into Teslas</h3>
+            <p>This works best for people who genuinely like the category and want to help others make a smart move.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="AI workflow and guardrails">
+      <div class="card">
+        <div class="card-top">
+          <div class="eyebrow">How the work gets done</div>
+          <h2>AI-assisted, human-led</h2>
+        </div>
+
+        <div class="feature-grid" role="list" aria-label="Workflow guardrails">
+          <div class="feature" role="listitem">
+            <h3>AI speeds up research</h3>
+            <p>Use AI to summarize listings, organize seller answers, and compare deal terms faster than manual note-taking alone.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Humans make the judgment calls</h3>
+            <p>An OUT Agent decides what matters, what to ask next, and where the buyer should push or walk away.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Scope can vary by deal</h3>
+            <p>Some engagements are short second-look reviews. Others may involve sourcing, calls, negotiation, and closing support.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Clear guardrails</h3>
+            <p>OUT‑MATCH supports decision-making, but it is not legal, tax, lending, or insurance advice. The buyer still makes the final call.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-lite" class="section" aria-label="OUT-MATCH FAQ">
+      <div class="card subtle">
+        <div class="card-top">
+          <div class="eyebrow">Quick FAQ</div>
+          <h2>Good questions for the beta</h2>
+        </div>
+
+        <div class="qa-grid qa-grid--single">
+          <div class="qa">
+            <h3>How long does an engagement last?</h3>
+            <p>There is not one fixed length. Some buyers only need a second-look review. Others need sourcing, outreach, negotiation, and support through signing.</p>
+          </div>
+          <div class="qa">
+            <h3>Can OUT‑MATCH work with dealer or private-seller listings?</h3>
+            <p>Yes. The service is meant to help on both sides, as long as the seller is responsive and the buyer wants support.</p>
+          </div>
+          <div class="qa">
+            <h3>Do I have to use OUT‑MATCH before I find a car?</h3>
+            <p>No. You can come in early for a full search or late for a second opinion on a Tesla you already found.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="OUT-MATCH calls to action">
+      <div class="cta-grid">
+        <div class="card">
+          <div class="card-top">
+            <div class="eyebrow">For buyers</div>
+            <h2>Book a free fit call</h2>
+            <p class="muted">Tell us the Tesla you want, your budget, your timing, or send the listing you already found.</p>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20beta%20fit%20call&amp;body=Name:%0D%0ALocation:%0D%0ABudget:%0D%0ATimeline:%0D%0AWhat%20Tesla%20are%20you%20looking%20for?%0D%0AHave%20you%20already%20found%20a%20car?%20Paste%20link:%0D%0A">Book free fit call</a>
+            <a class="btn secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20second%20look&amp;body=Name:%0D%0ALink%20to%20Tesla:%0D%0AAsking%20price:%0D%0AMy%20main%20questions:%0D%0A">Request second look</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="eyebrow">For experts</div>
+            <h2>Sign up as an OUT‑MATCH expert</h2>
+            <p class="muted">If you worked at Tesla, know the platform deeply, or simply know used Teslas better than most, apply here.</p>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20expert%20application&amp;body=Name:%0D%0ALocation:%0D%0AWhy%20I%20would%20be%20a%20good%20OUT-MATCH%20expert:%0D%0ATesla%20background:%0D%0AWhat%20types%20of%20buyers%20I%20could%20help:%0D%0A">Apply as an expert</a>
+            <a class="btn secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20provider%20questions">Ask provider questions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom-cta bottom-cta--outmatch" role="region" aria-label="OUT-MATCH quick actions">
+      <a class="btn small primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20beta%20fit%20call">Book call</a>
+      <a class="btn small secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20second%20look">Second look</a>
+      <a class="btn small secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20expert%20application">Expert</a>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer footer--spaced" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-head">
+        <div class="footer-brand">
+          <div class="footer-brand-mark">
+            <img class="footer-brand-icon" src="assets/icon.png" alt="" width="512" height="512" aria-hidden="true" />
+          </div>
+          <div>
+            <div class="footer-kicker">Only Used Tesla</div>
+            <div class="footer-brand-title">Independent. Mobile-first. Tesla-only.</div>
+            <p class="footer-text">
+              OUT‑MATCH is the Tesla-only buyer concierge beta from Only Used Tesla.
+              Built by Adam Qureshi in NYC. In business since 2017 and still going.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-badges" aria-label="Footer highlights">
+          <span class="footer-badge">Made in NYC</span>
+          <span class="footer-badge">Since 2017</span>
+          <span class="footer-badge">Tesla-only</span>
+          <span class="footer-badge">Small software shop</span>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-title">Marketplace</div>
+          <ul class="footer-links">
+            <li><a href="https://onlyusedtesla.com/used-tesla-for-sale">Shop used Teslas</a></li>
+            <li><a href="https://onlyusedtesla.com/sell-my-tesla">Advertise your Tesla</a></li>
+            <li><a href="https://onlyusedtesla.com/cash-offer">Cash offer</a></li>
+            <li><a href="dealer.html">Dealer sign up</a></li>
+            <li><a href="https://adamqureshi.com/out-check-landing/" target="_blank" rel="noopener">OUT‑CHECK</a></li>
+            <li><a href="out-match.html">OUT‑MATCH beta</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mailto:hello@onlyusedtesla.com">Contact</a></li>
+            <li><a href="https://www.linkedin.com/in/adamqureshi/" target="_blank" rel="noopener">Adam Qureshi on LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="visitor-agreement.html">Visitor Agreement</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Adam Qureshi. All rights reserved.</span>
+        <span class="dot">•</span>
+        <span>Made in NYC.</span>
+        <span class="dot">•</span>
+        <span>In business since 2017 and still going.</span>
+      </div>
+
+      <div class="footer-legal-inline">
+        <a href="terms-of-service.html">Terms of Service</a>
+        <span class="dot">•</span>
+        <a href="visitor-agreement.html">Visitor Agreement</a>
+        <span class="dot">•</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="dot">•</span>
+        <span>Not affiliated with Tesla, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

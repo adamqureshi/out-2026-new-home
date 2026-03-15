@@ -45,6 +45,7 @@
     advertise: 'https://onlyusedtesla.com/sell-my-tesla',
     cash: 'https://onlyusedtesla.com/cash-offer',
     outcheck: 'https://adamqureshi.com/out-check-landing/',
+    outmatch: 'out-match.html',
     dealer: 'dealer.html',
   };
 
@@ -77,6 +78,12 @@
     if (t.includes('dealer') || t.includes('inventory') || t.includes('dealership')) {
       appendMsg('Looking to advertise dealer inventory? Start on the dealer sign-up page.', 'bot');
       appendMsg(`<a class="link" href="${LINKS.dealer}">Open dealer sign-up</a>`, 'bot');
+      return;
+    }
+
+    if (t.includes('match') || t.includes('concierge') || t.includes('specialist') || t.includes('expert') || t.includes('second look')) {
+      appendMsg('OUT‑MATCH is the Tesla-only buyer concierge beta. We can help source a Tesla or pressure-test one you already found.', 'bot');
+      appendMsg(`<a class="link" href="${LINKS.outmatch}">Open OUT‑MATCH</a>`, 'bot');
       return;
     }
 
@@ -135,6 +142,12 @@
         appendMsg('Open “Buy OUT‑CHECK”.', 'user');
         window.open(LINKS.outcheck, '_blank', 'noopener,noreferrer');
         botReply('out check report');
+        return;
+      }
+
+      if (action === 'outmatch') {
+        appendMsg('Open “OUT‑MATCH”.', 'user');
+        window.location.href = LINKS.outmatch;
         return;
       }
     });
