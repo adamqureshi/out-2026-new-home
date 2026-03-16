@@ -81,8 +81,20 @@
       return;
     }
 
-    if (t.includes('match') || t.includes('concierge') || t.includes('specialist') || t.includes('expert') || t.includes('second look')) {
-      appendMsg('OUT‑MATCH is the Tesla-only buyer concierge beta. We can help source a Tesla or pressure-test one you already found.', 'bot');
+    if (
+      t.includes('match') ||
+      t.includes('concierge') ||
+      t.includes('specialist') ||
+      t.includes('expert') ||
+      t.includes('second look') ||
+      t.includes('price my') ||
+      t.includes('tire kicker') ||
+      t.includes('screen buyer') ||
+      t.includes('market my') ||
+      t.includes('video') ||
+      (t.includes('sell') && (t.includes('help') || t.includes('agent')))
+    ) {
+      appendMsg('OUT‑MATCH can help you buy the right Tesla or sell one with pricing, exposure planning, buyer screening, and deal guidance.', 'bot');
       appendMsg(`<a class="link" href="${LINKS.outmatch}">Open OUT‑MATCH</a>`, 'bot');
       return;
     }
@@ -105,7 +117,7 @@
       return;
     }
 
-    appendMsg('Got it. Quick options: “Shop”, “Advertise”, “Cash offer”, or “OUT‑CHECK”.', 'bot');
+    appendMsg('Got it. Quick options: “Shop”, “Advertise”, “Cash offer”, “OUT‑CHECK”, or “OUT‑MATCH”.', 'bot');
   };
 
   if (yoyoBtn) yoyoBtn.addEventListener('click', () => setYoYoOpen(true));

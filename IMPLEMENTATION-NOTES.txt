@@ -1,0 +1,24 @@
+OUT-MATCH update package
+
+Files included
+- out-match.html
+- index.html
+- script.js
+
+What changed
+- Repositioned OUT-MATCH from buyer-only to buyer + seller concierge
+- Added sell-side messaging: pricing help, listing positioning, cash-offer comparison, buyer screening, video shot-list support, and closing guidance
+- Kept the existing CSS classes and layout system; no styles.css changes required
+- Updated the homepage advertise section to include “Hire an OUT Agent”
+- Updated the homepage OUT-MATCH teaser to cover both buying and selling
+- Updated Yo-Yo copy so concierge / sell-help questions can route to OUT-MATCH
+
+Recommended paste order
+1. Replace out-match.html
+2. Replace index.html
+3. Replace script.js
+
+Notes
+- I left styles.css untouched
+- Pricing is framed as a starting pilot fee so you are not boxed into doing heavy seller work for a flat fee
+- Seller marketing support is described as scoping ad spend separately
