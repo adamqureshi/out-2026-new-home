@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>CarConnect AI — Dealer inventory for AI shoppers | Only Used Tesla</title>
+  <meta name="description" content="CarConnect AI helps dealerships connect live inventory to AI-assisted car shopping. Launch a dealer-facing beta with feed onboarding, AI-ready data normalization, and dealer-owned traffic routing." />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <a class="brand" href="index.html" aria-label="Only Used Tesla home">
+      <img class="brand-icon" src="assets/icon.png" alt="" width="512" height="512" aria-hidden="true" />
+      <img class="brand-wordmark" src="assets/wordmark.png" alt="" width="1024" height="74" aria-hidden="true" />
+      <span class="sr-only">Only Used Tesla</span>
+    </a>
+
+    <button class="icon-button" id="menuBtn" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+
+  <nav class="menu" id="menu" aria-hidden="true">
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+    <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="menu-header">
+        <div class="menu-title">Menu</div>
+        <button class="icon-button" id="closeMenu" aria-label="Close menu">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+
+      <ul class="menu-links">
+        <li><a href="index.html" class="menu-link">Home</a></li>
+        <li><a href="index.html#shop" class="menu-link">Shop</a></li>
+        <li><a href="index.html#advertise" class="menu-link">Advertise your Tesla</a></li>
+        <li><a href="dealer.html" class="menu-link">Dealer sign up</a></li>
+        <li><a href="car-connect-ai.html" class="menu-link">CarConnect AI</a></li>
+        <li><a href="index.html#outcheck" class="menu-link">OUT‑CHECK</a></li>
+        <li><a href="out-match.html" class="menu-link">OUT‑MATCH</a></li>
+        <li><a href="about.html" class="menu-link">About us</a></li>
+        <li><a href="#footer" class="menu-link">Contact</a></li>
+        <li><a href="login.html" class="menu-link">Log in</a></li>
+      </ul>
+      <div class="menu-fineprint">CarConnect AI is the dealer-facing beta for AI-assisted shopping visibility. Use it as a standalone product test inside this repo.</div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="outmatch-hero" aria-label="CarConnect AI intro">
+      <div class="outmatch-shell">
+        <div class="outmatch-copy">
+          <div class="hero-eyebrow hero-eyebrow--dark"><span class="hero-dot" aria-hidden="true"></span>Founding dealer beta · standalone product test</div>
+          <h1>Dealer inventory for AI shoppers.</h1>
+          <p class="lead outmatch-lead">
+            CarConnect AI connects live dealer inventory to AI-assisted car shopping, starting with ChatGPT,
+            so shoppers can see your vehicles, pricing, and store details with cleaner paths back to your dealership.
+          </p>
+
+          <div class="trust-row trust-row--dark" aria-label="CarConnect AI highlights">
+            <div class="chip chip--dark">Live inventory</div>
+            <div class="chip chip--dark">Dealer-owned traffic</div>
+            <div class="chip chip--dark">Founding beta</div>
+            <div class="chip chip--dark">Starting with ChatGPT</div>
+            <div class="chip chip--dark">Paid rollout</div>
+          </div>
+
+          <div class="hero-actions hero-actions--outmatch">
+            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=CarConnect%20AI%20founding%20beta&amp;body=Dealer%20name:%0D%0ARooftops:%0D%0ALocation:%0D%0AWebsite:%0D%0ADMS%20or%20feed%20provider:%0D%0ALaunch%20timeline:%0D%0AAnything%20else%20we%20should%20know?%0D%0A">Apply for founding access</a>
+            <a class="btn dark-outline" href="#pricing">See pricing</a>
+          </div>
+
+          <p class="outmatch-small">
+            Use this page as a standalone dealer-facing offer inside the main Only Used Tesla repo,
+            or send dealers to the live version while you test the messaging.
+          </p>
+        </div>
+
+        <aside class="outmatch-panel" aria-label="CarConnect AI beta pricing">
+          <div class="outmatch-offer-badge">Founding beta</div>
+          <div class="outmatch-panel-kicker">CarConnect AI</div>
+
+          <div class="outmatch-price-row">
+            <div class="outmatch-price">$2,500</div>
+            <div class="outmatch-price-copy">setup · $499 / rooftop monthly</div>
+          </div>
+
+          <ul class="outmatch-checklist">
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Feed onboarding and inventory mapping</span></li>
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>AI-ready data normalization for pricing, photos, VDPs, and dealer info</span></li>
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Dealer-owned routing back to your site, forms, and phone numbers</span></li>
+            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Founding beta positioning you can sell now instead of running a free pilot</span></li>
+          </ul>
+
+          <div class="card-actions outmatch-panel-actions">
+            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=CarConnect%20AI%20founding%20beta">Apply now</a>
+            <a class="btn secondary" href="https://adamqureshi.com/car-connect-ai/" target="_blank" rel="noopener">See live version</a>
+          </div>
+
+          <p class="outmatch-note">
+            Starting with ChatGPT. Additional AI shopping surfaces can be layered in as the beta expands.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-label="What CarConnect AI does">
+      <div class="card">
+        <div class="card-top">
+          <div class="eyebrow">What CarConnect AI does</div>
+          <h2>Not another marketplace. A direct inventory connection layer for AI shopping.</h2>
+          <p class="muted">
+            Dealers already pay for listings. CarConnect AI is the dealer-facing layer for making inventory
+            easier for AI shopping experiences to read, present, and route back to the store.
+          </p>
+        </div>
+
+        <div class="feature-grid" role="list" aria-label="CarConnect AI core workflow">
+          <div class="feature" role="listitem">
+            <h3>Connect the feed</h3>
+            <p>Pull inventory, pricing, photos, and VDP links from your DMS or feed provider into one structured format.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Normalize the data</h3>
+            <p>Clean up vehicle details, dealer contact points, and store metadata so AI tools can read the inventory clearly.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Launch the channel</h3>
+            <p>Publish an AI-ready shopping layer that helps shoppers discover vehicles and land on your site, forms, and phone numbers.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Keep the store relationship</h3>
+            <p>Use AI visibility to send qualified shoppers back to the dealership instead of handing the whole journey to a third-party listing site.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Why dealers care">
+      <div class="card">
+        <div class="card-top">
+          <div class="eyebrow">Why dealers care</div>
+          <h2>Use AI visibility to compete earlier in the shopping journey.</h2>
+          <p class="muted">
+            The point is not just exposure. The point is showing up when shoppers start with AI,
+            then keeping the click path and lead capture on the dealer side.
+          </p>
+        </div>
+
+        <div class="feature-grid" role="list" aria-label="Dealer benefits">
+          <div class="feature" role="listitem">
+            <h3>Show up earlier</h3>
+            <p>Meet shoppers when they begin with AI-assisted research instead of waiting for them to find a listing site first.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Keep dealer-owned traffic</h3>
+            <p>Push traffic to VDPs, trade-in pages, finance tools, and direct contact points tied to the store.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Move faster than bigger competitors</h3>
+            <p>Give independent stores and dealer groups a clearer way to test AI shopping distribution without a giant buildout.</p>
+          </div>
+          <div class="feature" role="listitem">
+            <h3>Turn onboarding into revenue</h3>
+            <p>Use setup cash to fund the product and prove dealers will pay for direct AI distribution instead of a free pilot.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section" aria-label="CarConnect AI pricing">
+      <div class="audience-grid audience-grid--cards">
+        <div class="card">
+          <div class="card-top">
+            <div class="eyebrow">Single rooftop beta</div>
+            <h2>$2,500 setup + $499 per month</h2>
+            <p class="muted">A simple founding offer for one rooftop with feed onboarding, launch support, and a 12-month founding rate lock.</p>
+          </div>
+
+          <ul class="stack-list">
+            <li>Inventory feed onboarding</li>
+            <li>Pricing, photos, and VDP mapping</li>
+            <li>Dealer profile setup</li>
+            <li>Launch support</li>
+            <li>12-month founding rate lock</li>
+          </ul>
+
+          <div class="card-actions">
+            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=CarConnect%20AI%20single%20rooftop%20beta">Start single rooftop beta</a>
+            <a class="btn secondary" href="dealer.html">Back to dealer page</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="eyebrow">Dealer group beta · 5+ rooftops</div>
+            <h2>From $5,000 group setup</h2>
+            <p class="muted">Use the beta to scope rollout order, map each store feed, and create a cleaner launch sequence across the group.</p>
+          </div>
+
+          <ul class="stack-list">
+            <li>Multi-rooftop rollout planning</li>
+            <li>Store-by-store feed mapping</li>
+            <li>Prioritized launch order</li>
+            <li>Founding group pricing</li>
+            <li>Direct founder support</li>
+          </ul>
+
+          <div class="card-actions">
+            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=CarConnect%20AI%20dealer%20group%20beta">Ask about dealer group rollout</a>
+            <a class="btn secondary" href="https://adamqureshi.com/car-connect-ai/" target="_blank" rel="noopener">Open live page</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="How onboarding works">
+      <div class="card">
+        <div class="card-top">
+          <div class="eyebrow">How onboarding works</div>
+          <h2>From feed access to live beta in a few clear steps.</h2>
+          <p class="muted">Simple enough to test quickly, structured enough to sell as a real dealer product.</p>
+        </div>
+
+        <div class="step-grid">
+          <div class="step">
+            <div class="step-num">Step 1</div>
+            <h3>Kickoff and rooftop review</h3>
+            <p>Review rooftops, goals, store sites, and which provider controls the inventory feed.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">Step 2</div>
+            <h3>Feed access and mapping</h3>
+            <p>Pull vehicle data, pricing, photos, and URLs into one normalized format AI tools can use.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">Step 3</div>
+            <h3>QA and store setup</h3>
+            <p>Verify VINs, pricing, VDP links, dealer contact points, and store metadata before launch.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">Step 4</div>
+            <h3>Launch and measure</h3>
+            <p>Go live, route shoppers back to the store, and use the beta to learn what dealers will actually pay for.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-lite" class="section" aria-label="CarConnect AI FAQ">
+      <div class="card subtle">
+        <div class="card-top">
+          <div class="eyebrow">Quick FAQ</div>
+          <h2>Good questions for the beta</h2>
+        </div>
+
+        <div class="qa-grid qa-grid--single">
+          <div class="qa">
+            <h3>Is this a marketplace listing product?</h3>
+            <p>No. CarConnect AI is positioned as a direct inventory connection layer for AI-assisted shopping, not another generic marketplace listing package.</p>
+          </div>
+          <div class="qa">
+            <h3>Can I use this alongside the dealer page on Only Used Tesla?</h3>
+            <p>Yes. This repo version is built so you can market CarConnect AI as a separate product while still keeping the Only Used Tesla dealer sign-up flow live.</p>
+          </div>
+          <div class="qa">
+            <h3>What should I send to start?</h3>
+            <p>Your dealer name, rooftop count, location, website, feed provider, and launch timeline are enough to kick off the conversation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom-cta bottom-cta--outmatch" role="region" aria-label="CarConnect AI quick actions">
+      <a class="btn small primary-blue" href="mailto:hello@onlyusedtesla.com?subject=CarConnect%20AI%20founding%20beta">Apply</a>
+      <a class="btn small secondary" href="#pricing">Pricing</a>
+      <a class="btn small secondary" href="dealer.html">Dealer</a>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer footer--spaced" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-head">
+        <div class="footer-brand">
+          <div class="footer-brand-mark">
+            <img class="footer-brand-icon" src="assets/icon.png" alt="" width="512" height="512" aria-hidden="true" />
+          </div>
+          <div>
+            <div class="footer-kicker">Only Used Tesla</div>
+            <div class="footer-brand-title">Independent. Mobile-first. Tesla-only.</div>
+            <p class="footer-text">
+              CarConnect AI is the dealer-facing AI shopping beta built alongside Only Used Tesla.
+              Built by Adam Qureshi in NYC. In business since 2017 and still going.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-badges" aria-label="Footer highlights">
+          <span class="footer-badge">Made in NYC</span>
+          <span class="footer-badge">Since 2017</span>
+          <span class="footer-badge">Dealer-facing beta</span>
+          <span class="footer-badge">Small software shop</span>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-title">Marketplace</div>
+          <ul class="footer-links">
+            <li><a href="https://onlyusedtesla.com/used-tesla-for-sale">Shop used Teslas</a></li>
+            <li><a href="https://onlyusedtesla.com/sell-my-tesla">Advertise your Tesla</a></li>
+            <li><a href="https://onlyusedtesla.com/cash-offer">Cash offer</a></li>
+            <li><a href="dealer.html">Dealer sign up</a></li>
+            <li><a href="car-connect-ai.html">CarConnect AI</a></li>
+            <li><a href="https://adamqureshi.com/out-check-landing/" target="_blank" rel="noopener">OUT‑CHECK</a></li>
+            <li><a href="out-match.html">OUT‑MATCH beta</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="mailto:hello@onlyusedtesla.com">Contact</a></li>
+            <li><a href="https://www.linkedin.com/in/adamqureshi/" target="_blank" rel="noopener">Adam Qureshi on LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="visitor-agreement.html">Visitor Agreement</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Adam Qureshi. All rights reserved.</span>
+        <span class="dot">•</span>
+        <span>Made in NYC.</span>
+        <span class="dot">•</span>
+        <span>In business since 2017 and still going.</span>
+      </div>
+
+      <div class="footer-legal-inline">
+        <a href="terms-of-service.html">Terms of Service</a>
+        <span class="dot">•</span>
+        <a href="visitor-agreement.html">Visitor Agreement</a>
+        <span class="dot">•</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="dot">•</span>
+        <span>Not affiliated with Tesla, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

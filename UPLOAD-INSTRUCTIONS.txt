@@ -1,0 +1,12 @@
+ONLY USED TESLA / CarConnect AI full repo package
+
+This is the full repo package with the CarConnect AI update already added.
+
+EASIEST OPTION:
+Upload everything in this folder to your out-2026-new-home repo and overwrite the existing files.
+
+What changed:
+- Added new standalone page: car-connect-ai.html
+- Added CarConnect AI link to the shared menu across the site
+- Added CarConnect AI link to the shared footer across the site
+- Added a CarConnect AI CTA and product section to dealer.html
