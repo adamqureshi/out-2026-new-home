@@ -1,24 +1,35 @@
-OUT-MATCH update package
+OUT-MATCH unified intake update
 
-Files included
+Changed files
 - out-match.html
 - index.html
 - script.js
 
 What changed
-- Repositioned OUT-MATCH from buyer-only to buyer + seller concierge
-- Added sell-side messaging: pricing help, listing positioning, cash-offer comparison, buyer screening, video shot-list support, and closing guidance
-- Kept the existing CSS classes and layout system; no styles.css changes required
-- Updated the homepage advertise section to include “Hire an OUT Agent”
-- Updated the homepage OUT-MATCH teaser to cover both buying and selling
-- Updated Yo-Yo copy so concierge / sell-help questions can route to OUT-MATCH
+- Replaced separate mailto CTAs with one logic-based intake on OUT-MATCH.
+- Added one mobile-first intake for:
+  - buyer
+  - seller
+  - buy + sell
+  - future OUT Agent
+- Added expert application questions for:
+  - Tesla owners
+  - former Tesla employees
+  - hybrid owner + former Tesla employee backgrounds
+- Added buyer/seller/expert track logic in script.js.
+- Added copy-summary fallback plus draft-email generation.
+- Did not change styles.css.
 
-Recommended paste order
-1. Replace out-match.html
-2. Replace index.html
-3. Replace script.js
+How it works
+- User picks a track.
+- JS shows only the relevant questions.
+- Form builds a structured summary.
+- User can copy the summary or open a draft email to hello@onlyusedtesla.com.
+- Query-string links can pre-select the form:
+  - out-match.html?track=buyer#intake
+  - out-match.html?track=seller#intake
+  - out-match.html?track=both#intake
+  - out-match.html?track=expert#intake
 
-Notes
-- I left styles.css untouched
-- Pricing is framed as a starting pilot fee so you are not boxed into doing heavy seller work for a flat fee
-- Seller marketing support is described as scoping ad spend separately
+Recommended next step after this pilot
+- Replace the draft-email flow with a real endpoint (Formspree, Web3Forms, Airtable, Supabase, etc.) once you want submissions stored automatically.

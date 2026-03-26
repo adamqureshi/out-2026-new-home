@@ -1,0 +1,63 @@
+--- a/index.html
++++ b/index.html
+@@ -44,6 +44,7 @@
+         <li><a href="index.html#shop" class="menu-link">Shop</a></li>
+         <li><a href="index.html#advertise" class="menu-link">Advertise your Tesla</a></li>
+         <li><a href="dealer.html" class="menu-link">Dealer sign up</a></li>
++        <li><a href="car-connect-ai.html" class="menu-link">CarConnect AI</a></li>
+         <li><a href="index.html#outcheck" class="menu-link">OUT‑CHECK</a></li>
+         <li><a href="out-match.html" class="menu-link">OUT‑MATCH</a></li>
+         <li><a href="about.html" class="menu-link">About us</a></li>
+@@ -125,7 +126,7 @@
+         <div class="card-actions">
+           <a class="btn primary" href="https://onlyusedtesla.com/sell-my-tesla">Start my ad</a>
+           <a class="btn secondary" href="https://onlyusedtesla.com/cash-offer">Get a cash offer</a>
+-          <a class="btn ghost" href="out-match.html">Hire an OUT Agent</a>
++          <a class="btn ghost" href="out-match.html?track=seller#intake">Hire an OUT Agent</a>
+         </div>
+ 
+         <p class="fineprint">
+@@ -226,18 +227,18 @@
+             <p class="muted">
+               <strong>OUT‑MATCH</strong> is the Tesla-only concierge pilot. Buyers can get help finding the right car
+               or pressure-testing a listing they already found. Sellers can hire an OUT Agent for pricing,
+-              positioning, cash-offer benchmarking, buyer screening, and closing guidance.
++              positioning, cash-offer benchmarking, buyer screening, and closing guidance. Future OUT Agents can apply from the same mobile-first intake.
+             </p>
+ 
+             <div class="mini-note" aria-label="OUT-MATCH highlights">
+               <span class="chip">Tesla-only specialist</span>
+               <span class="chip">Buyer + seller help</span>
+-              <span class="chip">AI-assisted research</span>
++              <span class="chip">One smart intake</span>
+             </div>
+ 
+             <div class="card-actions">
+-              <a class="btn primary" href="out-match.html">See OUT‑MATCH</a>
+-              <a class="btn secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20fit%20call&amp;body=Name:%0D%0AAre%20you%20a%20buyer%20or%20seller?%0D%0ALocation:%0D%0AWhat%20do%20you%20need%20help%20with?%0D%0A">Book fit call</a>
++              <a class="btn primary" href="out-match.html#intake">Start OUT‑MATCH intake</a>
++              <a class="btn secondary" href="out-match.html?track=expert#intake">Become an OUT Agent</a>
+             </div>
+           </div>
+ 
+@@ -245,9 +246,9 @@
+             <div class="eyebrow">Pilot pricing</div>
+             <div class="outmatch-mini-price">$499 starting fee</div>
+             <ul class="bullets bullets-tight">
+-              <li>Free fit call before you pay</li>
+-              <li>Buy-side or sell-side support</li>
+-              <li>Seller marketing help can be scoped if needed</li>
++              <li>One logic-based intake form</li>
++              <li>Buy-side, sell-side, or OUT Agent application</li>
++              <li>Adam handles the first fit calls personally</li>
+             </ul>
+           </aside>
+         </div>
+@@ -321,6 +322,7 @@
+             <li><a href="https://onlyusedtesla.com/sell-my-tesla">Advertise your Tesla</a></li>
+             <li><a href="https://onlyusedtesla.com/cash-offer">Cash offer</a></li>
+             <li><a href="dealer.html">Dealer sign up</a></li>
++            <li><a href="car-connect-ai.html">CarConnect AI</a></li>
+             <li><a href="https://adamqureshi.com/out-check-landing/" target="_blank" rel="noopener">OUT‑CHECK</a></li>
+             <li><a href="out-match.html">OUT‑MATCH beta</a></li>
+           </ul>

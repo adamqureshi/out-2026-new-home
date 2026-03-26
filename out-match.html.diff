@@ -1,0 +1,488 @@
+--- a/out-match.html
++++ b/out-match.html
+@@ -41,6 +41,7 @@
+         <li><a href="index.html#shop" class="menu-link">Shop</a></li>
+         <li><a href="index.html#advertise" class="menu-link">Advertise your Tesla</a></li>
+         <li><a href="dealer.html" class="menu-link">Dealer sign up</a></li>
++        <li><a href="car-connect-ai.html" class="menu-link">CarConnect AI</a></li>
+         <li><a href="index.html#outcheck" class="menu-link">OUT‑CHECK</a></li>
+         <li><a href="out-match.html" class="menu-link">OUT‑MATCH</a></li>
+         <li><a href="about.html" class="menu-link">About us</a></li>
+@@ -68,17 +69,17 @@
+             <div class="chip chip--dark">Buyer + seller help</div>
+             <div class="chip chip--dark">National pricing checks</div>
+             <div class="chip chip--dark">Screening + negotiation</div>
+-            <div class="chip chip--dark">Remote-friendly</div>
++            <div class="chip chip--dark">One smart intake</div>
+           </div>
+ 
+           <div class="hero-actions hero-actions--outmatch">
+-            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20buy-side%20fit%20call&amp;body=Name:%0D%0ALocation:%0D%0ABudget:%0D%0ATimeline:%0D%0AWhat%20Tesla%20are%20you%20looking%20for?%0D%0AHave%20you%20already%20found%20a%20car?%20Paste%20link:%0D%0A">Book buy-side fit call</a>
+-            <a class="btn dark-outline" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20seller%20fit%20call&amp;body=Name:%0D%0ALocation:%0D%0ATesla%20model%20and%20year:%0D%0AMileage:%0D%0ACondition%20notes:%0D%0AAsking%20price%20or%20goal:%0D%0ADo%20you%20want%20help%20with%20pricing,%20marketing,%20cash-offer%20comparison,%20or%20buyer%20screening?%0D%0A">Book seller fit call</a>
++            <a class="btn primary-blue" href="#intake" data-intake-path="buyer">Start buyer intake</a>
++            <a class="btn dark-outline" href="#intake" data-intake-path="seller">Start seller intake</a>
+           </div>
+ 
+           <p class="outmatch-small">
+             Built for people who want a sharper buy-side or sell-side process without endless tabs,
+-            random DMs, or loose ends.
++            random DMs, or loose ends. Start with one mobile-first intake and Adam handles the first concierge calls himself.
+           </p>
+         </div>
+ 
+@@ -92,15 +93,15 @@
+           </div>
+ 
+           <ul class="outmatch-checklist">
+-            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Free fit call before you pay</span></li>
+-            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>1:1 OUT Agent for buyers or sellers</span></li>
++            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>One mobile-first intake for buyer, seller, or future OUT Agent</span></li>
++            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Adam handles the first fit calls and early concierge flow himself</span></li>
+             <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>National pricing check and live-market context</span></li>
+-            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Outreach, screening, and negotiation help</span></li>
++            <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Buy-side, sell-side, screening, and negotiation support</span></li>
+             <li><span class="outmatch-check-icon" aria-hidden="true">✓</span><span>Optional seller marketing support with ad spend scoped separately</span></li>
+           </ul>
+ 
+           <div class="card-actions outmatch-panel-actions">
+-            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20fit%20call&amp;body=Name:%0D%0AAre%20you%20a%20buyer%20or%20seller?%0D%0ALocation:%0D%0AWhat%20do%20you%20need%20help%20with?%0D%0A">Apply now</a>
++            <a class="btn primary-blue" href="#intake" data-intake-path="buyer">Start one intake</a>
+             <a class="btn secondary" href="#faq-lite">Read FAQ</a>
+           </div>
+ 
+@@ -151,20 +152,299 @@
+         <div class="step-grid">
+           <div class="step">
+             <div class="step-num">Step 1</div>
+-            <h3>Start with a fit call</h3>
+-            <p>We figure out whether you need buyer search help, a second-look review, or seller-side support for pricing, exposure, and closing.</p>
++            <h3>Start with one smart intake</h3>
++            <p>Choose buyer, seller, buy + sell, or future OUT Agent. The form only shows the questions that matter for that path.</p>
+           </div>
+           <div class="step">
+             <div class="step-num">Step 2</div>
+-            <h3>Your OUT Agent builds the plan</h3>
+-            <p>We research the live market, compare options or comps, tighten the listing or questions, and line up the next steps that matter most.</p>
++            <h3>Adam reviews the intake and maps the next step</h3>
++            <p>For the pilot, Adam handles the first pass, decides whether it is a fit, and shapes the plan before any deeper concierge work starts.</p>
+           </div>
+           <div class="step">
+             <div class="step-num">Step 3</div>
+-            <h3>Move faster with fewer loose ends</h3>
+-            <p>Buyers get clearer decision support. Sellers get cleaner marketing, better screening, and more confidence heading into offers and handoff.</p>
+-          </div>
+-        </div>
++            <h3>Then the right human support takes over</h3>
++            <p>Buyers get clearer decision support. Sellers get cleaner marketing and screening. Future OUT Agents get screened for owner depth or Tesla work experience.</p>
++          </div>
++        </div>
++      </div>
++    </section>
++
++
++    <section id="intake" class="section" aria-label="OUT-MATCH intake form">
++      <div class="card">
++        <div class="card-top">
++          <div class="eyebrow">Start here</div>
++          <h2>One mobile-first intake form with logic</h2>
++          <p class="muted">
++            No separate customer page and no separate expert page for the pilot. Start here, choose the right track,
++            and the form will show the questions that matter for a buyer, seller, buy + sell customer, or future OUT Agent.
++          </p>
++        </div>
++
++        <div class="mini-note" aria-label="Quick intake tracks">
++          <a class="btn primary-blue" href="#intake" data-intake-path="buyer">Buyer</a>
++          <a class="btn secondary" href="#intake" data-intake-path="seller">Seller</a>
++          <a class="btn secondary" href="#intake" data-intake-path="both">Buy + sell</a>
++          <a class="btn secondary" href="#intake" data-intake-path="expert">OUT Agent</a>
++        </div>
++
++        <form id="outMatchIntakeForm" class="auth-form" novalidate>
++          <div class="feature-grid">
++            <div class="feature">
++              <label class="label" for="intakeRole">What best describes you?</label>
++              <select class="input" id="intakeRole" name="intake_role" required>
++                <option value="">Choose one</option>
++                <option value="buyer">I want help buying a Tesla</option>
++                <option value="seller">I want help selling a Tesla</option>
++                <option value="both">I want help buying and selling</option>
++                <option value="expert">I want to become an OUT Agent</option>
++              </select>
++            </div>
++
++            <div class="feature">
++              <label class="label" for="contactName">Full name</label>
++              <input class="input" id="contactName" name="full_name" type="text" autocomplete="name" required />
++            </div>
++
++            <div class="feature">
++              <label class="label" for="contactEmail">Email</label>
++              <input class="input" id="contactEmail" name="email" type="email" autocomplete="email" required />
++            </div>
++
++            <div class="feature">
++              <label class="label" for="contactPhone">Mobile phone</label>
++              <input class="input" id="contactPhone" name="phone" type="tel" autocomplete="tel" />
++            </div>
++
++            <div class="feature">
++              <label class="label" for="contactLocation">City + state</label>
++              <input class="input" id="contactLocation" name="location" type="text" autocomplete="address-level2" required />
++            </div>
++
++            <div class="feature">
++              <label class="label" for="contactMethod">Best way to reach you</label>
++              <select class="input" id="contactMethod" name="best_contact">
++                <option value="">Choose one</option>
++                <option value="Text me first">Text me first</option>
++                <option value="Call me first">Call me first</option>
++                <option value="Email me first">Email me first</option>
++                <option value="Any of the above works">Any of the above works</option>
++              </select>
++            </div>
++          </div>
++
++          <details class="details">
++            <summary>What happens after I submit?</summary>
++            <p>
++              This is a pilot flow. Adam reviews the intake personally, decides whether it is a fit, and then follows up
++              on the right path. The form can build a structured email draft for fast launch, and it also gives you a copyable summary as backup.
++            </p>
++          </details>
++
++          <div class="details" data-role-section="buyer" hidden>
++            <div class="label">Buyer track</div>
++            <p>Use this if you want help finding the right Tesla, pressure-testing a listing, or getting a second look before you move.</p>
++
++            <div class="feature-grid">
++              <div class="feature">
++                <label class="label" for="buyerTarget">Which Tesla are you looking for?</label>
++                <input class="input" id="buyerTarget" name="buyer_target" type="text" placeholder="Model Y Long Range, Model 3 Performance, etc." data-required-for="buyer,both" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="buyerBudget">Budget or target range</label>
++                <input class="input" id="buyerBudget" name="buyer_budget" type="text" placeholder="$25k to $35k" data-required-for="buyer,both" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="buyerHelp">What do you want help with?</label>
++                <select class="input" id="buyerHelp" name="buyer_help" data-required-for="buyer,both">
++                  <option value="">Choose one</option>
++                  <option value="Full search from scratch">Full search from scratch</option>
++                  <option value="Second look on a Tesla I already found">Second look on a Tesla I already found</option>
++                  <option value="Pricing review">Pricing review</option>
++                  <option value="Negotiation help">Negotiation help</option>
++                  <option value="Not sure yet">Not sure yet</option>
++                </select>
++              </div>
++
++              <div class="feature">
++                <label class="label" for="buyerTiming">Timeline</label>
++                <select class="input" id="buyerTiming" name="buyer_timing">
++                  <option value="">Choose one</option>
++                  <option value="ASAP">ASAP</option>
++                  <option value="Within 30 days">Within 30 days</option>
++                  <option value="Within 90 days">Within 90 days</option>
++                  <option value="Researching only">Researching only</option>
++                </select>
++              </div>
++
++              <div class="feature span-2">
++                <label class="label" for="buyerListing">Listing link if you already found a Tesla</label>
++                <input class="input" id="buyerListing" name="buyer_listing" type="url" inputmode="url" placeholder="https://..." />
++              </div>
++
++              <div class="feature span-2">
++                <label class="label" for="buyerNotes">Must-haves, deal breakers, or notes</label>
++                <textarea class="input" id="buyerNotes" name="buyer_notes" rows="5" style="height: 124px; padding: 12px;" placeholder="Budget guardrails, range needs, FSD, seat layout, color, wheels, travel limits, etc."></textarea>
++              </div>
++            </div>
++          </div>
++
++          <div class="details" data-role-section="seller" hidden>
++            <div class="label">Seller track</div>
++            <p>Use this if you want pricing help, cash-offer benchmarking, listing positioning, buyer screening, or closing guidance.</p>
++
++            <div class="feature-grid">
++              <div class="feature">
++                <label class="label" for="sellerTesla">Your Tesla</label>
++                <input class="input" id="sellerTesla" name="seller_tesla" type="text" placeholder="2021 Model Y Long Range" data-required-for="seller,both" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="sellerMileage">Mileage</label>
++                <input class="input" id="sellerMileage" name="seller_mileage" type="text" placeholder="42,500" data-required-for="seller,both" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="sellerPriority">What matters more right now?</label>
++                <select class="input" id="sellerPriority" name="seller_priority" data-required-for="seller,both">
++                  <option value="">Choose one</option>
++                  <option value="Sell fast">Sell fast</option>
++                  <option value="Sell for more">Sell for more</option>
++                  <option value="Compare cash offer vs private sale">Compare cash offer vs private sale</option>
++                  <option value="Not sure yet">Not sure yet</option>
++                </select>
++              </div>
++
++              <div class="feature">
++                <label class="label" for="sellerNeed">Main help needed</label>
++                <select class="input" id="sellerNeed" name="seller_need">
++                  <option value="">Choose one</option>
++                  <option value="Pricing + comps">Pricing + comps</option>
++                  <option value="Listing rewrite + positioning">Listing rewrite + positioning</option>
++                  <option value="Photo and video shot list">Photo and video shot list</option>
++                  <option value="Screening buyers">Screening buyers</option>
++                  <option value="Negotiation + closing support">Negotiation + closing support</option>
++                  <option value="Full seller concierge">Full seller concierge</option>
++                </select>
++              </div>
++
++              <div class="feature">
++                <label class="label" for="sellerAsk">Current ask or target price</label>
++                <input class="input" id="sellerAsk" name="seller_ask" type="text" placeholder="$31,900" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="sellerCashOffer">Best cash offer so far</label>
++                <input class="input" id="sellerCashOffer" name="seller_cash_offer" type="text" placeholder="$28,500 or none yet" />
++              </div>
++
++              <div class="feature span-2">
++                <label class="label" for="sellerListing">Listing link if the Tesla is already live</label>
++                <input class="input" id="sellerListing" name="seller_listing" type="url" inputmode="url" placeholder="https://..." />
++              </div>
++
++              <div class="feature span-2">
++                <label class="label" for="sellerNotes">Condition notes, title notes, upgrades, or anything else</label>
++                <textarea class="input" id="sellerNotes" name="seller_notes" rows="5" style="height: 124px; padding: 12px;" placeholder="Paint, wheels, tires, accidents, title status, charging setup, extras, financing payoff, etc."></textarea>
++              </div>
++            </div>
++          </div>
++
++          <div class="details" data-role-section="expert" hidden>
++            <div class="label">Future OUT Agent track</div>
++            <p>
++              Best fits include former Tesla sales, delivery, service, or ops people, plus Tesla owners who love the product and can calmly help real buyers and sellers.
++              Tesla ownership is preferred, but former Tesla employees should still apply and explain their background.
++            </p>
++
++            <div class="feature-grid">
++              <div class="feature">
++                <label class="label" for="expertBackground">What best describes you?</label>
++                <select class="input" id="expertBackground" name="expert_background" data-required-for="expert">
++                  <option value="">Choose one</option>
++                  <option value="Current Tesla owner">Current Tesla owner</option>
++                  <option value="Former Tesla employee">Former Tesla employee</option>
++                  <option value="Current Tesla owner + former Tesla employee">Current Tesla owner + former Tesla employee</option>
++                  <option value="Independent Tesla enthusiast">Independent Tesla enthusiast</option>
++                </select>
++              </div>
++
++              <div class="feature">
++                <label class="label" for="expertTesla">Your Tesla model</label>
++                <input class="input" id="expertTesla" name="expert_tesla" type="text" placeholder="Model 3, Model Y, etc." />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="expertYearsOwned">How many years have you had a Tesla?</label>
++                <input class="input" id="expertYearsOwned" name="expert_years_owned" type="number" min="0" step="0.5" placeholder="3" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="expertRole">Tesla work background</label>
++                <input class="input" id="expertRole" name="expert_role" type="text" placeholder="Former Tesla sales advisor, delivery specialist, service, etc." />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="expertHelp">What could you help with?</label>
++                <input class="input" id="expertHelp" name="expert_help" type="text" placeholder="Buyer calls, seller pricing, second looks, screening buyers" data-required-for="expert" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="expertAvailability">Hours per week you can give</label>
++                <input class="input" id="expertAvailability" name="expert_availability" type="text" placeholder="5 to 10 hours" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="expertRegion">Region or time zone</label>
++                <input class="input" id="expertRegion" name="expert_region" type="text" placeholder="NYC / Eastern, Texas / Central, Remote" />
++              </div>
++
++              <div class="feature">
++                <label class="label" for="expertLink">LinkedIn, X, or website</label>
++                <input class="input" id="expertLink" name="expert_link" type="url" inputmode="url" placeholder="https://..." />
++              </div>
++
++              <div class="feature span-2">
++                <label class="label" for="expertWhy">Why would you be a strong OUT Agent?</label>
++                <textarea class="input" id="expertWhy" name="expert_why" rows="5" style="height: 124px; padding: 12px;" placeholder="Tell us about Tesla depth, customer communication, and what kind of buyers or sellers you could help." data-required-for="expert"></textarea>
++              </div>
++            </div>
++          </div>
++
++          <div class="details">
++            <div class="label">Anything else we should know?</div>
++            <div class="feature-grid">
++              <div class="feature span-2">
++                <label class="label" for="generalNotes">General notes</label>
++                <textarea class="input" id="generalNotes" name="general_notes" rows="5" style="height: 124px; padding: 12px;" placeholder="Anything helpful that did not fit above."></textarea>
++              </div>
++            </div>
++          </div>
++
++          <div class="card-actions">
++            <button class="btn primary-blue" id="buildIntakeBtn" type="submit">Build my intake</button>
++            <button class="btn secondary" type="reset">Clear form</button>
++          </div>
++
++          <p class="fineprint" id="intakeTrackHint">
++            Pick the right track first. For the pilot, Adam reviews the first fit calls personally before deeper concierge work starts.
++          </p>
++
++          <div class="auth-toast" id="intakeMessage" hidden></div>
++
++          <div class="details" id="intakePreview" hidden>
++            <div class="label">Your intake is ready</div>
++            <p>You can copy this summary or open a draft email to <strong>hello@onlyusedtesla.com</strong>.</p>
++            <p id="intakeSummary" style="white-space: pre-wrap; margin: 0; line-height: 1.6;"></p>
++
++            <div class="card-actions">
++              <button class="btn primary-blue" id="copyIntakeBtn" type="button">Copy intake</button>
++              <a class="btn secondary" id="emailIntakeLink" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20intake">Open email draft</a>
++            </div>
++          </div>
++        </form>
+       </div>
+     </section>
+ 
+@@ -249,26 +529,26 @@
+       <div class="card subtle">
+         <div class="card-top">
+           <div class="eyebrow">Expert side</div>
+-          <h2>Who should sign up as an OUT‑MATCH expert?</h2>
+-          <p class="muted">This is for people who really know Teslas and can communicate clearly with buyers, sellers, dealers, and private parties.</p>
++          <h2>Who should sign up as a future OUT Agent?</h2>
++          <p class="muted">The strongest fits are people who know Teslas deeply and can calmly guide buyers or sellers through real decisions on mobile, by text, on email, or on a quick call.</p>
+         </div>
+ 
+         <div class="feature-grid" role="list" aria-label="Expert fit">
+           <div class="feature" role="listitem">
+-            <h3>Former Tesla or Tesla-adjacent operators</h3>
+-            <p>People who understand trims, software history, warranty context, options, and common ownership questions.</p>
+-          </div>
+-          <div class="feature" role="listitem">
+-            <h3>Owners and enthusiasts with real deal knowledge</h3>
+-            <p>People who know what matters on used Teslas and can separate signal from noise in listings, pricing, and buyer questions.</p>
+-          </div>
+-          <div class="feature" role="listitem">
+-            <h3>Comfortable turning expertise into action</h3>
+-            <p>You should be able to organize information, ask good questions, and keep both sides calm while a deal is moving.</p>
+-          </div>
+-          <div class="feature" role="listitem">
+-            <h3>Excited to help on the buy side and the sell side</h3>
+-            <p>This works best for people who genuinely like the category and want to help others make a smart move or a smart exit.</p>
++            <h3>Former Tesla sales, delivery, service, or ops people</h3>
++            <p>Great fit for side-hustle talent who already understand trims, ownership questions, buyer objections, and how real Tesla shoppers think.</p>
++          </div>
++          <div class="feature" role="listitem">
++            <h3>Owners who have lived with a Tesla for years</h3>
++            <p>People who truly know the product, can speak plainly about tradeoffs, and enjoy helping others make a smarter move.</p>
++          </div>
++          <div class="feature" role="listitem">
++            <h3>People who can do more than talk</h3>
++            <p>You should be able to organize messy information, ask sharp questions, screen weak leads, and keep a transaction moving.</p>
++          </div>
++          <div class="feature" role="listitem">
++            <h3>Excited about buy-side and sell-side concierge work</h3>
++            <p>This works best for people who like helping with search, pricing, second looks, seller positioning, screening, and follow-through.</p>
+           </div>
+         </div>
+       </div>
+@@ -311,8 +591,12 @@
+ 
+         <div class="qa-grid qa-grid--single">
+           <div class="qa">
++            <h3>Is this one form for buyers, sellers, and future OUT Agents?</h3>
++            <p>Yes. The intake uses logic. Choose buyer, seller, buy + sell, or future OUT Agent and the form only shows the questions that matter for that track.</p>
++          </div>
++          <div class="qa">
+             <h3>Is OUT‑MATCH only for buyers?</h3>
+-            <p>No. Buyers can use OUT‑MATCH for search or second-look help, and sellers can hire an OUT Agent for pricing, positioning, screening, and closing support.</p>
++            <p>No. Buyers can use OUT‑MATCH for search or second-look help, sellers can hire an OUT Agent for pricing, positioning, screening, and closing support, and future experts can apply from the same page.</p>
+           </div>
+           <div class="qa">
+             <h3>Will OUT‑MATCH run ads for my Tesla?</h3>
+@@ -339,48 +623,48 @@
+         <div class="card">
+           <div class="card-top">
+             <div class="eyebrow">For buyers</div>
+-            <h2>Book a buy-side fit call</h2>
++            <h2>Start the buyer intake</h2>
+             <p class="muted">Tell us the Tesla you want, your budget, your timing, or send the listing you already found.</p>
+           </div>
+ 
+           <div class="card-actions">
+-            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20buy-side%20fit%20call&amp;body=Name:%0D%0ALocation:%0D%0ABudget:%0D%0ATimeline:%0D%0AWhat%20Tesla%20are%20you%20looking%20for?%0D%0AHave%20you%20already%20found%20a%20car?%20Paste%20link:%0D%0A">Book buy-side fit call</a>
+-            <a class="btn secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20second%20look&amp;body=Name:%0D%0ALink%20to%20Tesla:%0D%0AAsking%20price:%0D%0AMy%20main%20questions:%0D%0A">Request second look</a>
++            <a class="btn primary-blue" href="#intake" data-intake-path="buyer">Start buyer intake</a>
++            <a class="btn secondary" href="#intake" data-intake-path="both">I am buying and selling</a>
+           </div>
+         </div>
+ 
+         <div class="card">
+           <div class="card-top">
+             <div class="eyebrow">For sellers</div>
+-            <h2>Hire an OUT Agent to help sell your Tesla</h2>
+-            <p class="muted">Get help with pricing, exposure planning, cash-offer benchmarking, screening buyers, and the closing process.</p>
++            <h2>Start the seller intake</h2>
++            <p class="muted">Get help with pricing, cash-offer benchmarking, listing positioning, buyer screening, and the closing process.</p>
+           </div>
+ 
+           <div class="card-actions">
+-            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20seller%20fit%20call&amp;body=Name:%0D%0ALocation:%0D%0ATesla%20model%20and%20year:%0D%0AMileage:%0D%0ACondition%20notes:%0D%0AAsking%20price%20or%20goal:%0D%0AWhat%20do%20you%20want%20help%20with?%0D%0A">Book seller fit call</a>
+-            <a class="btn secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20seller%20pricing%20review&amp;body=Name:%0D%0ATesla:%0D%0ALocation:%0D%0AMileage:%0D%0ACurrent%20asking%20price:%0D%0AAny%20cash%20offer%20already%20received?%0D%0A">Ask about pricing + cash offer</a>
++            <a class="btn primary-blue" href="#intake" data-intake-path="seller">Start seller intake</a>
++            <a class="btn secondary" href="#included">See seller support</a>
+           </div>
+         </div>
+ 
+         <div class="card">
+           <div class="card-top">
+             <div class="eyebrow">For experts</div>
+-            <h2>Sign up as an OUT‑MATCH expert</h2>
+-            <p class="muted">If you know used Teslas deeply and can help on the buy side or sell side, apply here.</p>
++            <h2>Apply to become an OUT Agent</h2>
++            <p class="muted">Former Tesla talent, owners with years of real use, and people who love helping others make Tesla decisions should start here.</p>
+           </div>
+ 
+           <div class="card-actions">
+-            <a class="btn primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20expert%20application&amp;body=Name:%0D%0ALocation:%0D%0AWhy%20I%20would%20be%20a%20good%20OUT-MATCH%20expert:%0D%0ATesla%20background:%0D%0AWhat%20types%20of%20customers%20I%20could%20help:%0D%0A">Apply as an expert</a>
+-            <a class="btn secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20provider%20questions">Ask provider questions</a>
++            <a class="btn primary-blue" href="#intake" data-intake-path="expert">Apply as an OUT Agent</a>
++            <a class="btn secondary" href="#faq-lite">Read expert FAQ</a>
+           </div>
+         </div>
+       </div>
+     </section>
+ 
+     <div class="bottom-cta bottom-cta--outmatch" role="region" aria-label="OUT-MATCH quick actions">
+-      <a class="btn small primary-blue" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20buy-side%20fit%20call">Buy help</a>
+-      <a class="btn small secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20seller%20fit%20call">Sell help</a>
+-      <a class="btn small secondary" href="mailto:hello@onlyusedtesla.com?subject=OUT-MATCH%20expert%20application">Expert</a>
++      <a class="btn small primary-blue" href="#intake" data-intake-path="buyer">Buyer</a>
++      <a class="btn small secondary" href="#intake" data-intake-path="seller">Seller</a>
++      <a class="btn small secondary" href="#intake" data-intake-path="expert">OUT Agent</a>
+     </div>
+   </main>
+ 
+@@ -417,6 +701,7 @@
+             <li><a href="https://onlyusedtesla.com/sell-my-tesla">Advertise your Tesla</a></li>
+             <li><a href="https://onlyusedtesla.com/cash-offer">Cash offer</a></li>
+             <li><a href="dealer.html">Dealer sign up</a></li>
++            <li><a href="car-connect-ai.html">CarConnect AI</a></li>
+             <li><a href="https://adamqureshi.com/out-check-landing/" target="_blank" rel="noopener">OUT‑CHECK</a></li>
+             <li><a href="out-match.html">OUT‑MATCH beta</a></li>
+           </ul>
