@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Log in — Only Used Tesla</title>
-  <meta name="description" content="Passwordless login for Only Used Tesla — use email magic link or social login." />
+  <title>Contact Us — Only Used Tesla</title>
+  <meta name="description" content="Contact Only Used Tesla about the marketplace, selling a Tesla, dealer inventory, OUT-MATCH, or general questions." />
   <meta name="theme-color" content="#111111" />
   <link rel="icon" type="image/png" href="assets/icon.png" />
   <link rel="apple-touch-icon" href="assets/icon.png" />
@@ -54,61 +54,99 @@
   </nav>
 
   <main class="page">
-        <section class="section auth-hero" aria-label="Login">
-          <div class="card">
-            <div class="eyebrow">Account</div>
-            <h1 class="auth-title">Log in (no passwords)</h1>
+    <section class="section page-intro" aria-label="Contact Only Used Tesla">
+      <div class="card">
+        <div class="eyebrow">Contact Us</div>
+        <h1>Talk to Only Used Tesla.</h1>
+        <p class="lead">
+          Questions about selling a Tesla, dealer inventory, OUT‑MATCH, OUT‑CHECK, or the marketplace in general?
+          Reach out here and we’ll point you in the right direction.
+        </p>
+
+        <div class="meta-row" aria-label="Contact highlights">
+          <span class="chip">contact@onlyusedtesla.com</span>
+          <span class="chip">Based in NYC</span>
+          <span class="chip">Independent</span>
+          <span class="chip">Since 2017</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-label="Contact details and form">
+      <div class="contact-layout">
+        <div class="contact-stack">
+          <div class="card subtle">
+            <h2 class="h2-tight">Best way to reach us</h2>
             <p class="muted">
-              We keep this dumb simple: use email (magic link) or a social login.
-              You should never have to think “what’s my password?” again.
+              Email is the best starting point for most questions. This page keeps the site static and lightweight:
+              after validation, the form opens a prefilled email draft from your device.
             </p>
 
-            <div class="auth-block">
-              <h2 class="h2-tight">Continue with email</h2>
-
-              <form class="auth-form" id="emailForm">
-                <label class="label" for="email">Email</label>
-                <input class="input" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
-
-                <button class="btn primary full" type="submit">Email me a magic link</button>
-                <p class="fineprint">
-                  Demo UI for now — connect your auth provider later.
-                </p>
-              </form>
-
-              <div class="auth-toast" id="emailToast" role="status" aria-live="polite" hidden>
-                Sent. Check your email for a sign‑in link.
-              </div>
-            </div>
-
-            <div class="divider"><span>or</span></div>
-
-            <div class="auth-block">
-              <h2 class="h2-tight">Continue with social</h2>
-              <div class="social-grid">
-                <button class="btn secondary full" type="button" data-social="google">Continue with Google</button>
-                <button class="btn secondary full" type="button" data-social="apple">Continue with Apple</button>
-              </div>
-              <p class="fineprint">
-                Social buttons are placeholders until you connect OAuth.
-              </p>
-            </div>
-
-            <details class="details">
-              <summary>Phone login (optional)</summary>
-              <p class="muted">
-                Phone OTP is great for conversion, but SMS verification can add per‑verification costs.
-                Start with email magic links + Google/Apple, then add phone when it’s worth it.
-              </p>
-            </details>
-
-            <div class="auth-bottom">
-              <a class="link" href="index.html">Back to home</a>
+            <div class="contact-direct-links">
+              <a class="btn primary" href="mailto:contact@onlyusedtesla.com?subject=Only%20Used%20Tesla%20inquiry">Email contact@onlyusedtesla.com</a>
+              <a class="btn secondary" href="about.html">About Only Used Tesla</a>
             </div>
           </div>
-        </section>
-  </main>
 
+          <div class="card">
+            <h2 class="h2-tight">Helpful details to include</h2>
+            <ul class="bullets">
+              <li>Whether you are a buyer, seller, or dealer</li>
+              <li>The Tesla, listing, or service you are asking about</li>
+              <li>Your city or market, if relevant</li>
+              <li>The best way to reach you back</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h2>Send a message</h2>
+            <p class="muted">
+              Fill this out and we’ll open a prefilled email draft to contact@onlyusedtesla.com.
+            </p>
+          </div>
+
+          <form class="auth-form contact-form" id="contactForm">
+            <div class="field-grid two-up">
+              <div class="field">
+                <label class="label" for="contactName">Name</label>
+                <input class="input" id="contactName" name="name" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="contactEmail">Email</label>
+                <input class="input" id="contactEmail" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="contactPhone">Phone <span class="field-note-inline">optional</span></label>
+              <input class="input" id="contactPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" placeholder="(555) 555-5555" />
+            </div>
+
+            <div class="field">
+              <label class="label" for="contactMessage">Message</label>
+              <textarea class="textarea" id="contactMessage" name="message" rows="7" minlength="12" maxlength="2000" placeholder="How can we help?" required></textarea>
+              <div class="field-note">Share enough context so we know where to route your message.</div>
+            </div>
+
+            <div class="card-actions">
+              <button class="btn primary" type="submit">Open email draft</button>
+              <button class="btn ghost" type="reset">Reset</button>
+            </div>
+
+            <p class="fineprint">
+              Static-site version: validation happens in the browser, then your email app opens a draft.
+              If you want direct submissions later, plug this into Formspree or your own backend.
+            </p>
+
+            <div class="auth-toast contact-status" id="contactStatus" role="status" aria-live="polite" hidden></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer id="footer" class="footer" role="contentinfo">
     <div class="footer-inner">

@@ -4,11 +4,13 @@
    - Yo-Yo bubble (placeholder chat)
    - OUT-MATCH intake logic
    - login page demo interactions
+   - contact page email-draft form
 */
 
 (() => {
   const qs = (sel, root = document) => root.querySelector(sel);
   const qsa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const CONTACT_EMAIL = 'contact@onlyusedtesla.com';
 
   // ----- Menu -----
   const menu = qs('#menu');
@@ -446,7 +448,7 @@
 
       if (intakeSummary) intakeSummary.textContent = summary;
       if (emailIntakeLink) {
-        emailIntakeLink.href = `mailto:hello@onlyusedtesla.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`;
+        emailIntakeLink.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`;
       }
       if (intakePreview) intakePreview.hidden = false;
 
@@ -504,6 +506,90 @@
         emailToast.hidden = false;
         setTimeout(() => (emailToast.hidden = true), 5000);
       }
+    });
+  }
+
+
+  // ----- Contact page form -----
+  const contactForm = qs('#contactForm');
+  const contactStatus = qs('#contactStatus');
+  const contactName = qs('#contactName');
+  const contactEmail = qs('#contactEmail');
+  const contactPhone = qs('#contactPhone');
+  const contactMessage = qs('#contactMessage');
+
+  const hideContactStatus = () => {
+    if (!contactStatus) return;
+    contactStatus.hidden = true;
+    contactStatus.textContent = '';
+  };
+
+  const showContactStatus = (text) => {
+    if (!contactStatus) return;
+    contactStatus.hidden = false;
+    contactStatus.textContent = text;
+  };
+
+  const syncContactPhoneValidity = () => {
+    if (!contactPhone) return true;
+    const value = contactPhone.value.trim();
+    if (!value) {
+      contactPhone.setCustomValidity('');
+      return true;
+    }
+
+    const valid = /^[0-9+().\-\s]{7,20}$/.test(value);
+    contactPhone.setCustomValidity(valid ? '' : 'Enter a valid phone number using numbers, spaces, parentheses, dots, or +.');
+    return valid;
+  };
+
+  if (contactForm) {
+    [contactName, contactEmail, contactPhone, contactMessage]
+      .filter(Boolean)
+      .forEach((field) => {
+        field.addEventListener('input', () => {
+          hideContactStatus();
+          if (field === contactPhone) syncContactPhoneValidity();
+          else field.setCustomValidity('');
+        });
+      });
+
+    contactForm.addEventListener('reset', () => {
+      window.setTimeout(() => {
+        hideContactStatus();
+        if (contactPhone) contactPhone.setCustomValidity('');
+      }, 0);
+    });
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      hideContactStatus();
+      syncContactPhoneValidity();
+
+      if (!contactForm.reportValidity()) {
+        showContactStatus('Please complete the highlighted fields and try again.');
+        return;
+      }
+
+      const formData = new FormData(contactForm);
+      const name = String(formData.get('name') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const phone = String(formData.get('phone') || '').trim();
+      const message = String(formData.get('message') || '').trim().replace(/\n{3,}/g, '\n\n');
+      const subject = `Only Used Tesla contact form${name ? ` — ${name}` : ''}`;
+      const body = [
+        'Only Used Tesla contact form',
+        '',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone || 'Not provided'}`,
+        '',
+        'Message:',
+        message,
+      ].join('\n');
+
+      showContactStatus('Your email draft is ready. If nothing opens, use the direct email link on this page.');
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
 

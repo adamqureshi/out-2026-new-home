@@ -838,6 +838,89 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
   font-size: 15px;
 }
 
+.input,
+.textarea{
+  width: 100%;
+  font-family: inherit;
+}
+
+.field{
+  display: grid;
+  gap: 8px;
+}
+
+.field-grid{
+  display: grid;
+  gap: 12px;
+}
+
+.field-grid.two-up{
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px){
+  .field-grid.two-up{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.textarea{
+  min-height: 150px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+  resize: vertical;
+  background: #fff;
+}
+
+.field-note{
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.field-note-inline{
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.contact-layout{
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 920px){
+  .contact-layout{
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+    align-items: start;
+  }
+}
+
+.contact-stack{
+  display: grid;
+  gap: 18px;
+}
+
+.contact-form{
+  margin-top: 14px;
+}
+
+.contact-direct-links{
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-status{
+  margin-top: 12px;
+}
+
 .divider{
   margin: 18px 0;
   display: grid;
