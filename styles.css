@@ -1490,3 +1490,174 @@ h3{ margin: 0 0 6px 0; font-size: 16px; }
     display: none;
   }
 }
+
+
+/* =========================================================
+   UX TWEAKS APPENDED FOR BETTER BUTTON AFFORDANCE + SECTION EDGES
+   Generated for Only Used Tesla homepage refresh
+   ========================================================= */
+
+/*
+ONLY USED TESLA — subtle UX affordance pass
+Goals:
+1) make real action buttons feel more tappable
+2) improve contrast on the lighter/secondary buttons
+3) add very subtle borders around content sections so scanning feels easier
+
+Load this AFTER the current theme/page CSS.
+*/
+
+:root {
+  --out-ink: #0d1b38;
+  --out-ink-soft: #23324d;
+  --out-surface: #ffffff;
+  --out-surface-soft: #f7f9fc;
+  --out-border: #cbd5e1;
+  --out-border-strong: #97a7ba;
+  --out-section-border: rgba(13, 27, 56, 0.10);
+  --out-focus-ring: rgba(13, 27, 56, 0.16);
+  --out-button-shadow: 0 1px 1px rgba(13, 27, 56, 0.05);
+}
+
+/* Keep spacing between button groups clean and readable */
+main .wp-block-buttons {
+  gap: 0.875rem;
+}
+
+/* Buttons: stronger outline, same pill feel, slightly more confidence */
+main .wp-block-buttons .wp-block-button__link,
+main .wp-block-buttons .wp-element-button,
+main button,
+main input[type="submit"],
+main input[type="button"],
+main input[type="reset"] {
+  min-height: 52px;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px !important;
+  border: 1.5px solid var(--out-border-strong);
+  box-shadow: var(--out-button-shadow);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Secondary / light buttons */
+main .wp-block-buttons .wp-block-button__link:not(.has-background):not([style*="background"]),
+main .wp-block-buttons .wp-element-button:not(.has-background):not([style*="background"]),
+main button:not([class*="has-background"]),
+main input[type="submit"],
+main input[type="button"],
+main input[type="reset"] {
+  background: var(--out-surface);
+  color: var(--out-ink);
+}
+
+/* Preserve filled brand buttons without forcing a new border color */
+main .wp-block-buttons .wp-block-button__link.has-background,
+main .wp-block-buttons .wp-element-button.has-background {
+  border-color: transparent;
+}
+
+/* Hover / tap affordance */
+main .wp-block-buttons .wp-block-button__link:hover,
+main .wp-block-buttons .wp-element-button:hover,
+main button:hover,
+main input[type="submit"]:hover,
+main input[type="button"]:hover,
+main input[type="reset"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(13, 27, 56, 0.05);
+}
+
+main .wp-block-buttons .wp-block-button__link:not(.has-background):not([style*="background"]):hover,
+main .wp-block-buttons .wp-element-button:not(.has-background):not([style*="background"]):hover,
+main input[type="submit"]:hover,
+main input[type="button"]:hover,
+main input[type="reset"]:hover {
+  background: var(--out-surface-soft);
+  border-color: var(--out-ink-soft);
+  color: var(--out-ink);
+}
+
+/* Keyboard focus */
+main .wp-block-buttons .wp-block-button__link:focus-visible,
+main .wp-block-buttons .wp-element-button:focus-visible,
+main button:focus-visible,
+main input[type="submit"]:focus-visible,
+main input[type="button"]:focus-visible,
+main input[type="reset"]:focus-visible {
+  outline: none;
+  border-color: var(--out-ink);
+  box-shadow: 0 0 0 4px var(--out-focus-ring);
+}
+
+/* Outline buttons get a touch more edge so they read as interactive */
+main .wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link,
+main .wp-block-buttons .is-style-outline > .wp-block-button__link {
+  border-width: 1.75px;
+}
+
+/*
+Sections: add only a very subtle divider.
+This keeps the current design language but makes each task block easier to scan.
+*/
+main .wp-block-group.has-background,
+main .wp-block-columns.has-background,
+main .wp-block-column.has-background,
+main .wp-block-cover,
+main .wp-block-media-text.has-background {
+  border: 1px solid var(--out-section-border);
+  border-radius: 28px !important;
+  overflow: hidden;
+}
+
+/* Inner cards stay softer than outer sections */
+main .wp-block-column.has-background,
+main .wp-block-group.has-background .wp-block-group.has-background {
+  border-color: rgba(13, 27, 56, 0.08);
+}
+
+/* Slightly clearer separation between stacked blocks */
+main .wp-block-group.has-background + .wp-block-group.has-background,
+main .wp-block-columns.has-background + .wp-block-group.has-background,
+main .wp-block-group.has-background + .wp-block-columns.has-background {
+  margin-top: clamp(18px, 3vw, 28px);
+}
+
+@media (max-width: 782px) {
+  main .wp-block-buttons {
+    gap: 0.75rem;
+  }
+
+  main .wp-block-buttons .wp-block-button__link,
+  main .wp-block-buttons .wp-element-button,
+  main button,
+  main input[type="submit"],
+  main input[type="button"],
+  main input[type="reset"] {
+    min-height: 54px;
+    padding-inline: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .wp-block-buttons .wp-block-button__link,
+  main .wp-block-buttons .wp-element-button,
+  main button,
+  main input[type="submit"],
+  main input[type="button"],
+  main input[type="reset"] {
+    transition: none;
+  }
+}
+
