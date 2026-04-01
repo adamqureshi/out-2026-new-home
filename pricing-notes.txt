@@ -1,0 +1,26 @@
+OUT-MATCH pricing notes
+
+Seller-side page:
+- Public offer: $499 upfront
+- Duration: 10 days
+- Renewal: leave off the public page for now until you have more data
+
+Internal renewal test:
+- Option A: $249 for another 10 days
+- Option B: $299 for another 10 days if the work is heavier
+
+Buy-side test offer:
+- Tesla Buy-Side Search Concierge
+- $1,000 upfront
+- Suggested scope:
+  * intake call
+  * nationwide search
+  * shortlist of strong options
+  * pricing sanity check
+  * listing review
+  * vehicle history review when available
+  * text + phone support
+- Make clear:
+  * you are not a broker
+  * you do not handle funds
+  * the customer decides whether to buy

@@ -2,7 +2,7 @@
    Minimal JS for:
    - hamburger menu
    - Yo-Yo bubble (placeholder chat)
-   - OUT-MATCH intake logic
+   - OUT-MATCH Concierge short form
    - login page demo interactions
    - contact page email-draft form
 */
@@ -23,8 +23,7 @@
     menu.classList.toggle('open', open);
     menu.setAttribute('aria-hidden', String(!open));
     if (menuBtn) menuBtn.setAttribute('aria-expanded', String(open));
-    if (open) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = '';
+    document.body.style.overflow = open ? 'hidden' : '';
   };
 
   if (menuBtn) menuBtn.addEventListener('click', () => setMenuOpen(true));
@@ -34,6 +33,47 @@
   qsa('.menu-link').forEach((a) => {
     a.addEventListener('click', () => setMenuOpen(false));
   });
+
+  // ----- Utilities -----
+  const normalizePhone = (value) => String(value || '').trim();
+  const validPhone = (value) => /^[0-9+().\-\s]{7,20}$/.test(normalizePhone(value));
+  const validZip = (value) => /^\d{5}(?:-\d{4})?$/.test(String(value || '').trim());
+
+  const showMessage = (el, text) => {
+    if (!el) return;
+    el.textContent = text;
+    el.hidden = false;
+  };
+
+  const hideMessage = (el) => {
+    if (!el) return;
+    el.hidden = true;
+    el.textContent = '';
+  };
+
+  const copyText = async (text) => {
+    if (!text) return false;
+
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (err) {
+      // fall through
+    }
+
+    const helper = document.createElement('textarea');
+    helper.value = text;
+    helper.setAttribute('readonly', '');
+    helper.style.position = 'absolute';
+    helper.style.left = '-9999px';
+    document.body.appendChild(helper);
+    helper.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(helper);
+    return ok;
+  };
 
   // ----- Yo-Yo chat widget (placeholder) -----
   const yoyoBtn = qs('#yoyoBtn');
@@ -48,13 +88,9 @@
     advertise: 'https://onlyusedtesla.com/sell-my-tesla',
     cash: 'https://onlyusedtesla.com/cash-offer',
     outcheck: 'https://adamqureshi.com/out-check-landing/',
-    outmatch: 'out-match.html',
-    outmatchStart: 'out-match.html#intake',
-    outmatchBuyer: 'out-match.html?track=buyer#intake',
-    outmatchSeller: 'out-match.html?track=seller#intake',
-    outmatchBoth: 'out-match.html?track=both#intake',
-    outmatchExpert: 'out-match.html?track=expert#intake',
+    outmatch: 'out-match.html#contact',
     dealer: 'dealer.html',
+    email: `mailto:${CONTACT_EMAIL}`,
   };
 
   const setYoYoOpen = (open) => {
@@ -77,48 +113,44 @@
     const t = String(raw || '').trim().toLowerCase();
 
     const sellerIntent =
+      t.includes('sell my tesla') ||
+      t.includes('selling my tesla') ||
+      t.includes('cash offer') ||
       t.includes('price my') ||
+      t.includes('help me sell') ||
       t.includes('screen buyer') ||
-      t.includes('screening buyer') ||
-      t.includes('tire kicker') ||
-      t.includes('market my') ||
-      t.includes('video') ||
-      t.includes('pricing') ||
-      (t.includes('sell') && (t.includes('help') || t.includes('agent') || t.includes('tesla'))) ||
-      ((t.includes('cash') || t.includes('offer')) && (t.includes('seller') || t.includes('price') || t.includes('my tesla')));
-
-    const expertIntent =
-      t.includes('side hustle') ||
-      t.includes('apply as') ||
-      t.includes('apply') ||
-      t.includes('former tesla') ||
-      t.includes('worked at tesla') ||
-      t.includes('out agent') ||
-      t.includes('become an agent');
+      t.includes('concierge');
 
     const buyerIntent =
-      t.includes('second look') ||
-      t.includes('already found') ||
-      t.includes('found a tesla') ||
-      t.includes('help buying') ||
-      (t.includes('buy') && t.includes('tesla')) ||
-      (t.includes('concierge') && !sellerIntent && !expertIntent);
+      t.includes('buy a tesla') ||
+      t.includes('buying a tesla') ||
+      t.includes('find one') ||
+      t.includes('find me') ||
+      t.includes('model s plaid') ||
+      t.includes('plaid') ||
+      t.includes('help buying');
+
+    const expertIntent =
+      t.includes('out agent') ||
+      t.includes('apply') ||
+      t.includes('worked at tesla') ||
+      t.includes('former tesla');
 
     if (expertIntent) {
-      appendMsg('Want to become an OUT Agent? The expert track uses the same intake form.', 'bot');
-      appendMsg(`<a class="link" href="${LINKS.outmatchExpert}">Apply as an OUT Agent</a>`, 'bot');
+      appendMsg('OUT Agent applications are not on the public page right now. Email Adam if you want to be considered later.', 'bot');
+      appendMsg(`<a class="link" href="${LINKS.email}">Email Adam</a>`, 'bot');
       return;
     }
 
     if (sellerIntent) {
-      appendMsg('OUT‑MATCH can help you sell with pricing, cash-offer benchmarking, listing help, buyer screening, and closing guidance.', 'bot');
-      appendMsg(`<a class="link" href="${LINKS.outmatchSeller}">Open seller intake</a>`, 'bot');
+      appendMsg('OUT‑MATCH Concierge can help you sell your Tesla. Start with the short contact form and Adam will text you back.', 'bot');
+      appendMsg(`<a class="link" href="${LINKS.outmatch}">Open OUT‑MATCH Concierge</a>`, 'bot');
       return;
     }
 
     if (buyerIntent) {
-      appendMsg('OUT‑MATCH can help you buy the right Tesla or give a second look on one you already found.', 'bot');
-      appendMsg(`<a class="link" href="${LINKS.outmatchBuyer}">Open buyer intake</a>`, 'bot');
+      appendMsg('Need help finding a Tesla? Start with OUT‑MATCH Concierge and say you want buy-side help in your message.', 'bot');
+      appendMsg(`<a class="link" href="${LINKS.outmatch}">Contact Adam</a>`, 'bot');
       return;
     }
 
@@ -134,14 +166,8 @@
       return;
     }
 
-    if (t.includes('match') || t.includes('specialist') || t.includes('expert')) {
-      appendMsg('OUT‑MATCH now has one smart intake for buyers, sellers, and future OUT Agents.', 'bot');
-      appendMsg(`<a class="link" href="${LINKS.outmatchStart}">Open OUT‑MATCH intake</a>`, 'bot');
-      return;
-    }
-
-    if (t.includes('shop') || t.includes('browse') || t.includes('buy')) {
-      appendMsg('Let’s shop Tesla‑only listings.', 'bot');
+    if (t.includes('shop') || t.includes('browse')) {
+      appendMsg('Let’s shop Tesla-only listings.', 'bot');
       appendMsg(`<a class="link" href="${LINKS.shop}" target="_blank" rel="noopener">Open listings</a>`, 'bot');
       return;
     }
@@ -152,19 +178,18 @@
       return;
     }
 
-    if (t.includes('list') || t.includes('advertise') || t.includes('sell')) {
+    if (t.includes('advertise') || (t.includes('sell') && !t.includes('tesla concierge'))) {
       appendMsg('Perfect. Let’s get your Tesla ad live.', 'bot');
       appendMsg(`<a class="link" href="${LINKS.advertise}" target="_blank" rel="noopener">Start your ad</a>`, 'bot');
       return;
     }
 
-    appendMsg('Got it. Quick options: “Shop”, “Advertise”, “Cash offer”, “OUT‑CHECK”, or “OUT‑MATCH”.', 'bot');
+    appendMsg('Quick options: “Shop”, “Advertise”, “Cash offer”, “OUT‑CHECK”, or “OUT‑MATCH Concierge”.', 'bot');
   };
 
   if (yoyoBtn) yoyoBtn.addEventListener('click', () => setYoYoOpen(true));
   if (yoyoClose) yoyoClose.addEventListener('click', () => setYoYoOpen(false));
 
-  // Quick action buttons
   qsa('[data-action]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const action = btn.getAttribute('data-action');
@@ -199,9 +224,8 @@
       }
 
       if (action === 'outmatch') {
-        appendMsg('Open “OUT‑MATCH”.', 'user');
-        window.location.href = LINKS.outmatchStart;
-        return;
+        appendMsg('Open “OUT‑MATCH Concierge”.', 'user');
+        window.location.href = LINKS.outmatch;
       }
     });
   });
@@ -218,282 +242,130 @@
     });
   }
 
-  // ----- OUT-MATCH intake form -----
-  const intakeSection = qs('#intake');
-  const intakeForm = qs('#outMatchIntakeForm');
-  const intakeRole = qs('#intakeRole');
-  const intakeTrackHint = qs('#intakeTrackHint');
-  const buildIntakeBtn = qs('#buildIntakeBtn');
-  const intakeMessage = qs('#intakeMessage');
-  const intakePreview = qs('#intakePreview');
-  const intakeSummary = qs('#intakeSummary');
-  const copyIntakeBtn = qs('#copyIntakeBtn');
-  const emailIntakeLink = qs('#emailIntakeLink');
-  const roleSections = {
-    buyer: qs('[data-role-section="buyer"]'),
-    seller: qs('[data-role-section="seller"]'),
-    expert: qs('[data-role-section="expert"]'),
-  };
+  // ----- OUT-MATCH Concierge short form -----
+  const conciergeForm = qs('#outMatchConciergeForm');
+  const conciergeName = qs('#conciergeName');
+  const conciergePhone = qs('#conciergePhone');
+  const conciergeZip = qs('#conciergeZip');
+  const conciergeMessage = qs('#conciergeMessage');
+  const conciergeStatus = qs('#conciergeStatus');
+  const conciergePreview = qs('#conciergePreview');
+  const conciergeSummary = qs('#conciergeSummary');
+  const conciergeEmailLink = qs('#conciergeEmailLink');
+  const copyConciergeBtn = qs('#copyConciergeBtn');
 
-  const allowedIntakeRoles = ['buyer', 'seller', 'both', 'expert'];
-  const roleButtonText = {
-    buyer: 'Build buyer intake',
-    seller: 'Build seller intake',
-    both: 'Build buy + sell intake',
-    expert: 'Build OUT Agent application',
-    default: 'Build my intake',
-  };
-  const roleHints = {
-    buyer: 'Tell us the Tesla you want, your budget, and whether you already found a listing.',
-    seller: 'Tell us the Tesla, mileage, and whether you care more about speed, pricing confidence, or both.',
-    both: 'Tell us both sides so Adam can see the full transaction picture.',
-    expert: 'Former Tesla people and owners with real depth are strong fits. Use this track to apply as an OUT Agent.',
-    default: 'Pick the right track first. For the pilot, Adam reviews the first fit calls personally before deeper concierge work starts.',
-  };
-
-  const roleSubject = {
-    buyer: 'OUT-MATCH buyer intake',
-    seller: 'OUT-MATCH seller intake',
-    both: 'OUT-MATCH buy + sell intake',
-    expert: 'OUT-MATCH OUT Agent application',
-  };
-
-  const trackButtons = qsa('[data-intake-path]');
-
-  const setSectionState = (section, show) => {
-    if (!section) return;
-    section.hidden = !show;
-    qsa('input, select, textarea', section).forEach((field) => {
-      field.disabled = !show;
-    });
-  };
-
-  const roleMatches = (requiredFor, activeRole) => {
-    if (!requiredFor || !activeRole) return false;
-    return String(requiredFor)
-      .split(',')
-      .map((part) => part.trim())
-      .includes(activeRole);
-  };
-
-  const syncIntakeRole = (role) => {
-    const activeRole = allowedIntakeRoles.includes(role) ? role : '';
-    const showBuyer = activeRole === 'buyer' || activeRole === 'both';
-    const showSeller = activeRole === 'seller' || activeRole === 'both';
-    const showExpert = activeRole === 'expert';
-
-    if (intakeRole) intakeRole.value = activeRole;
-    setSectionState(roleSections.buyer, showBuyer);
-    setSectionState(roleSections.seller, showSeller);
-    setSectionState(roleSections.expert, showExpert);
-
-    qsa('[data-required-for]').forEach((field) => {
-      field.required = roleMatches(field.getAttribute('data-required-for'), activeRole);
-    });
-
-    if (buildIntakeBtn) {
-      buildIntakeBtn.textContent = roleButtonText[activeRole] || roleButtonText.default;
+  const syncConciergePhoneValidity = () => {
+    if (!conciergePhone) return true;
+    const value = conciergePhone.value.trim();
+    if (!value) {
+      conciergePhone.setCustomValidity('');
+      return false;
     }
 
-    if (intakeTrackHint) {
-      intakeTrackHint.textContent = roleHints[activeRole] || roleHints.default;
-    }
-  };
-
-  const showIntakeMessage = (text) => {
-    if (!intakeMessage) return;
-    intakeMessage.textContent = text;
-    intakeMessage.hidden = false;
-  };
-
-  const hideIntakeMessage = () => {
-    if (!intakeMessage) return;
-    intakeMessage.hidden = true;
-    intakeMessage.textContent = '';
-  };
-
-  const copyText = async (text) => {
-    if (!text) return false;
-
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(text);
-        return true;
-      }
-    } catch (err) {
-      // fall back below
-    }
-
-    const helper = document.createElement('textarea');
-    helper.value = text;
-    helper.setAttribute('readonly', '');
-    helper.style.position = 'absolute';
-    helper.style.left = '-9999px';
-    document.body.appendChild(helper);
-    helper.select();
-    const ok = document.execCommand('copy');
-    document.body.removeChild(helper);
+    const ok = validPhone(value);
+    conciergePhone.setCustomValidity(ok ? '' : 'Enter a valid phone number using numbers, spaces, parentheses, dots, or +.');
     return ok;
   };
 
-  const valueOf = (formData, name) => String(formData.get(name) || '').trim();
+  const syncConciergeZipValidity = () => {
+    if (!conciergeZip) return true;
+    const value = conciergeZip.value.trim();
+    if (!value) {
+      conciergeZip.setCustomValidity('');
+      return false;
+    }
 
-  const pushIf = (lines, label, value) => {
-    if (!value) return;
-    lines.push(`${label}: ${value}`);
+    const ok = validZip(value);
+    conciergeZip.setCustomValidity(ok ? '' : 'Enter a valid ZIP code like 10001 or 10001-1234.');
+    return ok;
   };
 
-  const buildSummary = (role, formData) => {
-    const lines = [];
-    const roleLabel = roleSubject[role] || 'OUT-MATCH intake';
+  const buildConciergeSummary = () => {
+    const name = conciergeName ? conciergeName.value.trim() : '';
+    const phone = conciergePhone ? conciergePhone.value.trim() : '';
+    const zip = conciergeZip ? conciergeZip.value.trim() : '';
+    const message = conciergeMessage ? conciergeMessage.value.trim().replace(/\n{3,}/g, '\n\n') : '';
 
-    lines.push(roleLabel);
-    lines.push(`Submitted: ${new Date().toLocaleString()}`);
-    lines.push('');
-    lines.push('CONTACT');
-    pushIf(lines, 'Name', valueOf(formData, 'full_name'));
-    pushIf(lines, 'Email', valueOf(formData, 'email'));
-    pushIf(lines, 'Phone', valueOf(formData, 'phone'));
-    pushIf(lines, 'Location', valueOf(formData, 'location'));
-    pushIf(lines, 'Best contact', valueOf(formData, 'best_contact'));
-
-    if (role === 'buyer' || role === 'both') {
-      lines.push('');
-      lines.push('BUYER TRACK');
-      pushIf(lines, 'Target Tesla', valueOf(formData, 'buyer_target'));
-      pushIf(lines, 'Budget', valueOf(formData, 'buyer_budget'));
-      pushIf(lines, 'Main help needed', valueOf(formData, 'buyer_help'));
-      pushIf(lines, 'Timeline', valueOf(formData, 'buyer_timing'));
-      pushIf(lines, 'Listing link', valueOf(formData, 'buyer_listing'));
-      pushIf(lines, 'Notes', valueOf(formData, 'buyer_notes'));
-    }
-
-    if (role === 'seller' || role === 'both') {
-      lines.push('');
-      lines.push('SELLER TRACK');
-      pushIf(lines, 'Tesla', valueOf(formData, 'seller_tesla'));
-      pushIf(lines, 'Mileage', valueOf(formData, 'seller_mileage'));
-      pushIf(lines, 'Priority', valueOf(formData, 'seller_priority'));
-      pushIf(lines, 'Main help needed', valueOf(formData, 'seller_need'));
-      pushIf(lines, 'Current ask', valueOf(formData, 'seller_ask'));
-      pushIf(lines, 'Best cash offer', valueOf(formData, 'seller_cash_offer'));
-      pushIf(lines, 'Listing link', valueOf(formData, 'seller_listing'));
-      pushIf(lines, 'Notes', valueOf(formData, 'seller_notes'));
-    }
-
-    if (role === 'expert') {
-      lines.push('');
-      lines.push('FUTURE OUT AGENT TRACK');
-      pushIf(lines, 'Background', valueOf(formData, 'expert_background'));
-      pushIf(lines, 'Tesla model', valueOf(formData, 'expert_tesla'));
-      pushIf(lines, 'Years owned', valueOf(formData, 'expert_years_owned'));
-      pushIf(lines, 'Tesla work background', valueOf(formData, 'expert_role'));
-      pushIf(lines, 'How they can help', valueOf(formData, 'expert_help'));
-      pushIf(lines, 'Hours per week', valueOf(formData, 'expert_availability'));
-      pushIf(lines, 'Region / time zone', valueOf(formData, 'expert_region'));
-      pushIf(lines, 'LinkedIn / website', valueOf(formData, 'expert_link'));
-      pushIf(lines, 'Why they are a fit', valueOf(formData, 'expert_why'));
-    }
-
-    const generalNotes = valueOf(formData, 'general_notes');
-    if (generalNotes) {
-      lines.push('');
-      lines.push('GENERAL NOTES');
-      lines.push(generalNotes);
-    }
-
-    return lines.join('\n').replace(/\n{3,}/g, '\n\n');
+    return [
+      'OUT-MATCH Concierge lead',
+      `Submitted: ${new Date().toLocaleString()}`,
+      '',
+      `Name: ${name}`,
+      `Mobile: ${phone}`,
+      `Zip Code: ${zip}`,
+      '',
+      'Message:',
+      message,
+    ].join('\n');
   };
 
-  if (intakeForm && intakeRole) {
-    const queryTrack = new URLSearchParams(window.location.search).get('track');
-    syncIntakeRole(queryTrack || intakeRole.value);
+  if (conciergeForm) {
+    [conciergeName, conciergePhone, conciergeZip, conciergeMessage]
+      .filter(Boolean)
+      .forEach((field) => {
+        field.addEventListener('input', () => {
+          hideMessage(conciergeStatus);
+          if (field === conciergePhone) syncConciergePhoneValidity();
+          if (field === conciergeZip) syncConciergeZipValidity();
+          field.setCustomValidity(field.validationMessage || '');
+        });
+      });
 
-    intakeRole.addEventListener('change', () => {
-      hideIntakeMessage();
-      syncIntakeRole(intakeRole.value);
-    });
-
-    intakeForm.addEventListener('reset', () => {
+    conciergeForm.addEventListener('reset', () => {
       window.setTimeout(() => {
-        syncIntakeRole('');
-        hideIntakeMessage();
-        if (intakePreview) intakePreview.hidden = true;
-        if (intakeSummary) intakeSummary.textContent = '';
+        hideMessage(conciergeStatus);
+        if (conciergePreview) conciergePreview.hidden = true;
+        if (conciergeSummary) conciergeSummary.textContent = '';
+        if (conciergePhone) conciergePhone.setCustomValidity('');
+        if (conciergeZip) conciergeZip.setCustomValidity('');
       }, 0);
     });
 
-    intakeForm.addEventListener('submit', (e) => {
+    conciergeForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      hideIntakeMessage();
+      hideMessage(conciergeStatus);
+      syncConciergePhoneValidity();
+      syncConciergeZipValidity();
 
-      const activeRole = intakeRole.value;
-      syncIntakeRole(activeRole);
-
-      if (!allowedIntakeRoles.includes(activeRole)) {
-        showIntakeMessage('Choose the right intake track first.');
-        intakeRole.focus();
+      if (!conciergeForm.reportValidity()) {
+        showMessage(conciergeStatus, 'Please complete the highlighted fields and try again.');
         return;
       }
 
-      if (!intakeForm.reportValidity()) {
-        showIntakeMessage('Please complete the highlighted fields and try again.');
-        return;
+      const name = conciergeName ? conciergeName.value.trim() : '';
+      const summary = buildConciergeSummary();
+      const subject = `OUT-MATCH Concierge lead${name ? ` — ${name}` : ''}`;
+
+      if (conciergeSummary) conciergeSummary.textContent = summary;
+      if (conciergeEmailLink) {
+        conciergeEmailLink.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`;
+      }
+      if (conciergePreview) conciergePreview.hidden = false;
+
+      showMessage(conciergeStatus, 'Your email draft is ready. If nothing opens, copy the message below and email Adam directly.');
+
+      if (conciergePreview) {
+        conciergePreview.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
-      const formData = new FormData(intakeForm);
-      const summary = buildSummary(activeRole, formData);
-      const name = valueOf(formData, 'full_name');
-      const subject = `${roleSubject[activeRole] || 'OUT-MATCH intake'}${name ? ` — ${name}` : ''}`;
-
-      if (intakeSummary) intakeSummary.textContent = summary;
-      if (emailIntakeLink) {
-        emailIntakeLink.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`;
-      }
-      if (intakePreview) intakePreview.hidden = false;
-
-      showIntakeMessage('Your intake summary is ready. Copy it or open the draft email below.');
-
-      if (intakePreview) {
-        intakePreview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (conciergeEmailLink) {
+        window.location.href = conciergeEmailLink.href;
       }
     });
 
-    if (copyIntakeBtn) {
-      copyIntakeBtn.addEventListener('click', async () => {
-        const text = intakeSummary ? intakeSummary.textContent : '';
+    if (copyConciergeBtn) {
+      copyConciergeBtn.addEventListener('click', async () => {
+        const text = conciergeSummary ? conciergeSummary.textContent : '';
         const ok = await copyText(text);
-        showIntakeMessage(ok ? 'Copied. You can paste the intake anywhere.' : 'Copy did not work automatically. You can still select and copy the summary.');
+        showMessage(
+          conciergeStatus,
+          ok
+            ? 'Copied. You can paste the message anywhere.'
+            : 'Copy did not work automatically. You can still select and copy the message manually.'
+        );
       });
     }
   }
-
-  trackButtons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      if (!intakeSection || !intakeRole) return;
-      const role = btn.getAttribute('data-intake-path');
-      if (!allowedIntakeRoles.includes(role)) return;
-
-      if (btn.getAttribute('href') && btn.getAttribute('href').includes('#intake')) {
-        e.preventDefault();
-      }
-
-      hideIntakeMessage();
-      syncIntakeRole(role);
-      intakeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      const nextUrl = `${window.location.pathname}?track=${role}#intake`;
-      window.history.replaceState({}, '', nextUrl);
-    });
-  });
-
-  // Close overlays with ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      setMenuOpen(false);
-      setYoYoOpen(false);
-    }
-  });
 
   // ----- Login page demo -----
   const emailForm = qs('#emailForm');
@@ -509,7 +381,6 @@
     });
   }
 
-
   // ----- Contact page form -----
   const contactForm = qs('#contactForm');
   const contactStatus = qs('#contactStatus');
@@ -517,18 +388,6 @@
   const contactEmail = qs('#contactEmail');
   const contactPhone = qs('#contactPhone');
   const contactMessage = qs('#contactMessage');
-
-  const hideContactStatus = () => {
-    if (!contactStatus) return;
-    contactStatus.hidden = true;
-    contactStatus.textContent = '';
-  };
-
-  const showContactStatus = (text) => {
-    if (!contactStatus) return;
-    contactStatus.hidden = false;
-    contactStatus.textContent = text;
-  };
 
   const syncContactPhoneValidity = () => {
     if (!contactPhone) return true;
@@ -538,9 +397,9 @@
       return true;
     }
 
-    const valid = /^[0-9+().\-\s]{7,20}$/.test(value);
-    contactPhone.setCustomValidity(valid ? '' : 'Enter a valid phone number using numbers, spaces, parentheses, dots, or +.');
-    return valid;
+    const ok = validPhone(value);
+    contactPhone.setCustomValidity(ok ? '' : 'Enter a valid phone number using numbers, spaces, parentheses, dots, or +.');
+    return ok;
   };
 
   if (contactForm) {
@@ -548,7 +407,7 @@
       .filter(Boolean)
       .forEach((field) => {
         field.addEventListener('input', () => {
-          hideContactStatus();
+          hideMessage(contactStatus);
           if (field === contactPhone) syncContactPhoneValidity();
           else field.setCustomValidity('');
         });
@@ -556,18 +415,18 @@
 
     contactForm.addEventListener('reset', () => {
       window.setTimeout(() => {
-        hideContactStatus();
+        hideMessage(contactStatus);
         if (contactPhone) contactPhone.setCustomValidity('');
       }, 0);
     });
 
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      hideContactStatus();
+      hideMessage(contactStatus);
       syncContactPhoneValidity();
 
       if (!contactForm.reportValidity()) {
-        showContactStatus('Please complete the highlighted fields and try again.');
+        showMessage(contactStatus, 'Please complete the highlighted fields and try again.');
         return;
       }
 
@@ -588,7 +447,7 @@
         message,
       ].join('\n');
 
-      showContactStatus('Your email draft is ready. If nothing opens, use the direct email link on this page.');
+      showMessage(contactStatus, 'Your email draft is ready. If nothing opens, use the direct email link on this page.');
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
@@ -599,5 +458,13 @@
       const provider = btn.getAttribute('data-social');
       alert(`Placeholder: connect ${provider} OAuth here.`);
     });
+  });
+
+  // Close overlays with ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      setMenuOpen(false);
+      setYoYoOpen(false);
+    }
   });
 })();
